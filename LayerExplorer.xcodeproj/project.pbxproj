@@ -12,18 +12,7 @@
 		27C91AF11AB8C36E005F3CC8 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C91AF01AB8C36E005F3CC8 /* Document.swift */; };
 		27C91AF31AB8C36E005F3CC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C91AF21AB8C36E005F3CC8 /* Images.xcassets */; };
 		27C91AF61AB8C36E005F3CC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C91AF41AB8C36E005F3CC8 /* Main.storyboard */; };
-		27C91B021AB8C36E005F3CC8 /* LayerExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C91B011AB8C36E005F3CC8 /* LayerExplorerTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		27C91AFC1AB8C36E005F3CC8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27C91ADF1AB8C36E005F3CC8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27C91AE61AB8C36E005F3CC8;
-			remoteInfo = LayerExplorer;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		27C91AE71AB8C36E005F3CC8 /* LayerExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,20 +22,10 @@
 		27C91AF01AB8C36E005F3CC8 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		27C91AF21AB8C36E005F3CC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27C91AF51AB8C36E005F3CC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		27C91AFB1AB8C36E005F3CC8 /* LayerExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayerExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27C91B001AB8C36E005F3CC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27C91B011AB8C36E005F3CC8 /* LayerExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerExplorerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		27C91AE41AB8C36E005F3CC8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27C91AF81AB8C36E005F3CC8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,8 +38,8 @@
 		27C91ADE1AB8C36E005F3CC8 = {
 			isa = PBXGroup;
 			children = (
-				27C91AE91AB8C36E005F3CC8 /* LayerExplorer */,
-				27C91AFE1AB8C36E005F3CC8 /* LayerExplorerTests */,
+				27C91AEB1AB8C36E005F3CC8 /* Info.plist */,
+				27C91AE91AB8C36E005F3CC8 /* Source */,
 				27C91AE81AB8C36E005F3CC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,12 +48,11 @@
 			isa = PBXGroup;
 			children = (
 				27C91AE71AB8C36E005F3CC8 /* LayerExplorer.app */,
-				27C91AFB1AB8C36E005F3CC8 /* LayerExplorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		27C91AE91AB8C36E005F3CC8 /* LayerExplorer */ = {
+		27C91AE91AB8C36E005F3CC8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				27C91AEC1AB8C36E005F3CC8 /* AppDelegate.swift */,
@@ -82,34 +60,8 @@
 				27C91AF01AB8C36E005F3CC8 /* Document.swift */,
 				27C91AF21AB8C36E005F3CC8 /* Images.xcassets */,
 				27C91AF41AB8C36E005F3CC8 /* Main.storyboard */,
-				27C91AEA1AB8C36E005F3CC8 /* Supporting Files */,
 			);
-			path = LayerExplorer;
-			sourceTree = "<group>";
-		};
-		27C91AEA1AB8C36E005F3CC8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				27C91AEB1AB8C36E005F3CC8 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		27C91AFE1AB8C36E005F3CC8 /* LayerExplorerTests */ = {
-			isa = PBXGroup;
-			children = (
-				27C91B011AB8C36E005F3CC8 /* LayerExplorerTests.swift */,
-				27C91AFF1AB8C36E005F3CC8 /* Supporting Files */,
-			);
-			path = LayerExplorerTests;
-			sourceTree = "<group>";
-		};
-		27C91AFF1AB8C36E005F3CC8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				27C91B001AB8C36E005F3CC8 /* Info.plist */,
-			);
-			name = "Supporting Files";
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,24 +84,6 @@
 			productReference = 27C91AE71AB8C36E005F3CC8 /* LayerExplorer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		27C91AFA1AB8C36E005F3CC8 /* LayerExplorerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27C91B081AB8C36E005F3CC8 /* Build configuration list for PBXNativeTarget "LayerExplorerTests" */;
-			buildPhases = (
-				27C91AF71AB8C36E005F3CC8 /* Sources */,
-				27C91AF81AB8C36E005F3CC8 /* Frameworks */,
-				27C91AF91AB8C36E005F3CC8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27C91AFD1AB8C36E005F3CC8 /* PBXTargetDependency */,
-			);
-			name = LayerExplorerTests;
-			productName = LayerExplorerTests;
-			productReference = 27C91AFB1AB8C36E005F3CC8 /* LayerExplorerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +95,6 @@
 				TargetAttributes = {
 					27C91AE61AB8C36E005F3CC8 = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					27C91AFA1AB8C36E005F3CC8 = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 27C91AE61AB8C36E005F3CC8;
 					};
 				};
 			};
@@ -182,7 +112,6 @@
 			projectRoot = "";
 			targets = (
 				27C91AE61AB8C36E005F3CC8 /* LayerExplorer */,
-				27C91AFA1AB8C36E005F3CC8 /* LayerExplorerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,13 +123,6 @@
 			files = (
 				27C91AF31AB8C36E005F3CC8 /* Images.xcassets in Resources */,
 				27C91AF61AB8C36E005F3CC8 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27C91AF91AB8C36E005F3CC8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,23 +139,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27C91AF71AB8C36E005F3CC8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27C91B021AB8C36E005F3CC8 /* LayerExplorerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		27C91AFD1AB8C36E005F3CC8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27C91AE61AB8C36E005F3CC8 /* LayerExplorer */;
-			targetProxy = 27C91AFC1AB8C36E005F3CC8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		27C91AF41AB8C36E005F3CC8 /* Main.storyboard */ = {
@@ -332,7 +238,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = LayerExplorer/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -343,45 +249,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = LayerExplorer/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		27C91B091AB8C36E005F3CC8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LayerExplorerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LayerExplorer.app/Contents/MacOS/LayerExplorer";
-			};
-			name = Debug;
-		};
-		27C91B0A1AB8C36E005F3CC8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LayerExplorerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LayerExplorer.app/Contents/MacOS/LayerExplorer";
 			};
 			name = Release;
 		};
@@ -402,14 +272,6 @@
 			buildConfigurations = (
 				27C91B061AB8C36E005F3CC8 /* Debug */,
 				27C91B071AB8C36E005F3CC8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		27C91B081AB8C36E005F3CC8 /* Build configuration list for PBXNativeTarget "LayerExplorerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27C91B091AB8C36E005F3CC8 /* Debug */,
-				27C91B0A1AB8C36E005F3CC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
