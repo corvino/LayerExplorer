@@ -50,6 +50,7 @@
 		27C91ADE1AB8C36E005F3CC8 = {
 			isa = PBXGroup;
 			children = (
+				27C91AF21AB8C36E005F3CC8 /* Images.xcassets */,
 				27C91AEB1AB8C36E005F3CC8 /* Info.plist */,
 				27C91AE91AB8C36E005F3CC8 /* Source */,
 				27C91AE81AB8C36E005F3CC8 /* Products */,
@@ -72,7 +73,6 @@
 				27C91AEC1AB8C36E005F3CC8 /* AppDelegate.swift */,
 				27A407EE1AB8CF5900109830 /* CanvasViewController.swift */,
 				27C91AF01AB8C36E005F3CC8 /* Document.swift */,
-				27C91AF21AB8C36E005F3CC8 /* Images.xcassets */,
 				27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */,
 				272047841AB8D08200CDF7D4 /* LayerView.swift */,
 				27C91AF41AB8C36E005F3CC8 /* Main.storyboard */,
