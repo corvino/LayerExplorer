@@ -8,39 +8,16 @@
 
 import Cocoa
 
-class PositionInspectorViewController: NSViewController, LayerPropertyFormatterDelegate {
-
-    var layerView : LayerView?
-    var dirty : Bool = false
+class PositionInspectorViewController: InspectorPaneViewController {
 
     @IBOutlet weak var positionXTextField: NSTextField!
     @IBOutlet weak var positionYTextField: NSTextField!
     @IBOutlet weak var anchorPointXTextField: NSTextField!
     @IBOutlet weak var anchorPointYTextField: NSTextField!
 
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
+    override func changesAnimated(notification: NSNotification) {
+        super.animateChanges(notification)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "layerSelected:", name: "LayerSelected", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "animateChanges:", name: "AnimateChanges", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changesAnimated:", name: "ChangesAnimated", object: nil)
-    }
-
-    func markDirty() {
-        dirty = true
-    }
-
-    func layerSelected(notification: NSNotification) {
-        layerView = notification.userInfo!["Layer"] as! LayerView?
-
-        changesAnimated(notification)
-    }
-
-    func changesAnimated(notification: NSNotification) {
         if let layer = layerView?.layer! {
             self.positionXTextField.stringValue = "\(layer.position.x)"
             self.positionYTextField.stringValue = "\(layer.position.y)"
@@ -49,7 +26,9 @@ class PositionInspectorViewController: NSViewController, LayerPropertyFormatterD
         }
     }
 
-    func animateChanges(notification: NSNotification) {
+    override func animateChanges(notification: NSNotification) {
+        super.animateChanges(notification)
+
         if dirty {
             if let layer = layerView?.layer {
                 let position = CGPoint(x: positionXTextField.doubleValue, y: positionYTextField.doubleValue)

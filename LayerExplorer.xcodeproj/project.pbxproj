@@ -18,6 +18,7 @@
 		27DB474F1AC2087B004AF702 /* ActionButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB474D1AC2087B004AF702 /* ActionButtonViewController.swift */; };
 		27DB47521AC20BB8004AF702 /* LayerPropertyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */; };
 		27DB47561AC32975004AF702 /* PositionInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB47551AC32975004AF702 /* PositionInspectorViewController.swift */; };
+		27DB47591AC34CCD004AF702 /* InspectorPaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB47581AC34CCD004AF702 /* InspectorPaneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		27DB474D1AC2087B004AF702 /* ActionButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonViewController.swift; sourceTree = "<group>"; };
 		27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerPropertyFormatter.swift; sourceTree = "<group>"; };
 		27DB47551AC32975004AF702 /* PositionInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionInspectorViewController.swift; sourceTree = "<group>"; };
+		27DB47581AC34CCD004AF702 /* InspectorPaneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorPaneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				272047881AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift */,
 				272047861AC1F2C300CDF7D4 /* FrameInspectorViewController.swift */,
+				27DB47581AC34CCD004AF702 /* InspectorPaneViewController.swift */,
 				27DB47551AC32975004AF702 /* PositionInspectorViewController.swift */,
 			);
 			name = InspectorPanes;
@@ -163,6 +166,7 @@
 				27DB474F1AC2087B004AF702 /* ActionButtonViewController.swift in Sources */,
 				272047871AC1F2C300CDF7D4 /* FrameInspectorViewController.swift in Sources */,
 				272047851AB8D08200CDF7D4 /* LayerView.swift in Sources */,
+				27DB47591AC34CCD004AF702 /* InspectorPaneViewController.swift in Sources */,
 				27DB47561AC32975004AF702 /* PositionInspectorViewController.swift in Sources */,
 				2720478A1AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift in Sources */,
 				27DB47521AC20BB8004AF702 /* LayerPropertyFormatter.swift in Sources */,

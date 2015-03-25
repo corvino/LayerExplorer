@@ -8,35 +8,16 @@
 
 import Cocoa
 
-class BoundsInspectorViewController: NSViewController, LayerPropertyFormatterDelegate {
-
-    var layerView : LayerView?
-    var dirty : Bool = false
+class BoundsInspectorViewController: InspectorPaneViewController {
 
     @IBOutlet weak var xTextField: NSTextField!
     @IBOutlet weak var yTextField: NSTextField!
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var heightTextField: NSTextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func changesAnimated(notification: NSNotification) {
+        super.animateChanges(notification)
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "layerSelected:", name: "LayerSelected", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "animateChanges:", name: "AnimateChanges", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changesAnimated:", name: "ChangesAnimated", object: nil)
-    }
-
-    func markDirty() {
-        dirty = true
-    }
-
-    func layerSelected(notification: NSNotification) {
-        layerView = notification.userInfo!["Layer"] as! LayerView?
-
-        changesAnimated(notification)
-    }
-
-    func changesAnimated(notification: NSNotification) {
         if let bounds = self.layerView?.layer!.bounds {
             self.xTextField.stringValue = "\(bounds.origin.x)"
             self.yTextField.stringValue = "\(bounds.origin.y)"
@@ -45,7 +26,9 @@ class BoundsInspectorViewController: NSViewController, LayerPropertyFormatterDel
         }
     }
 
-    func animateChanges(notification: NSNotification) {
+    override func animateChanges(notification: NSNotification) {
+        super.animateChanges(notification)
+
         if dirty {
             if let layer = layerView?.layer {
                 let frame = CGRect(origin: CGPoint(x: self.xTextField.doubleValue, y: self.yTextField.doubleValue), size: CGSize(width: self.widthTextField.doubleValue, height: self.heightTextField.doubleValue))
