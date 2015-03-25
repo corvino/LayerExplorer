@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272047851AB8D08200CDF7D4 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047841AB8D08200CDF7D4 /* LayerView.swift */; };
+		272047871AC1F2C300CDF7D4 /* FrameInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047861AC1F2C300CDF7D4 /* FrameInspectorViewController.swift */; };
+		2720478A1AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047881AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift */; };
+		27A407EF1AB8CF5900109830 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A407EE1AB8CF5900109830 /* CanvasViewController.swift */; };
 		27C91AED1AB8C36E005F3CC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C91AEC1AB8C36E005F3CC8 /* AppDelegate.swift */; };
-		27C91AEF1AB8C36E005F3CC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C91AEE1AB8C36E005F3CC8 /* ViewController.swift */; };
 		27C91AF11AB8C36E005F3CC8 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C91AF01AB8C36E005F3CC8 /* Document.swift */; };
 		27C91AF31AB8C36E005F3CC8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C91AF21AB8C36E005F3CC8 /* Images.xcassets */; };
 		27C91AF61AB8C36E005F3CC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27C91AF41AB8C36E005F3CC8 /* Main.storyboard */; };
+		27DB474F1AC2087B004AF702 /* ActionButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB474D1AC2087B004AF702 /* ActionButtonViewController.swift */; };
+		27DB47521AC20BB8004AF702 /* LayerPropertyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */; };
+		27DB47561AC32975004AF702 /* PositionInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB47551AC32975004AF702 /* PositionInspectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		272047841AB8D08200CDF7D4 /* LayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
+		272047861AC1F2C300CDF7D4 /* FrameInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameInspectorViewController.swift; sourceTree = "<group>"; };
+		272047881AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundsInspectorViewController.swift; sourceTree = "<group>"; };
+		27A407EE1AB8CF5900109830 /* CanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		27C91AE71AB8C36E005F3CC8 /* LayerExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C91AEB1AB8C36E005F3CC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27C91AEC1AB8C36E005F3CC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27C91AEE1AB8C36E005F3CC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27C91AF01AB8C36E005F3CC8 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		27C91AF21AB8C36E005F3CC8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27C91AF51AB8C36E005F3CC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27DB474D1AC2087B004AF702 /* ActionButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonViewController.swift; sourceTree = "<group>"; };
+		27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerPropertyFormatter.swift; sourceTree = "<group>"; };
+		27DB47551AC32975004AF702 /* PositionInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionInspectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +67,27 @@
 		27C91AE91AB8C36E005F3CC8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				27DB47571AC329A6004AF702 /* InspectorPanes */,
+				27DB474D1AC2087B004AF702 /* ActionButtonViewController.swift */,
 				27C91AEC1AB8C36E005F3CC8 /* AppDelegate.swift */,
-				27C91AEE1AB8C36E005F3CC8 /* ViewController.swift */,
+				27A407EE1AB8CF5900109830 /* CanvasViewController.swift */,
 				27C91AF01AB8C36E005F3CC8 /* Document.swift */,
 				27C91AF21AB8C36E005F3CC8 /* Images.xcassets */,
+				27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */,
+				272047841AB8D08200CDF7D4 /* LayerView.swift */,
 				27C91AF41AB8C36E005F3CC8 /* Main.storyboard */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		27DB47571AC329A6004AF702 /* InspectorPanes */ = {
+			isa = PBXGroup;
+			children = (
+				272047881AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift */,
+				272047861AC1F2C300CDF7D4 /* FrameInspectorViewController.swift */,
+				27DB47551AC32975004AF702 /* PositionInspectorViewController.swift */,
+			);
+			name = InspectorPanes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27C91AEF1AB8C36E005F3CC8 /* ViewController.swift in Sources */,
+				27A407EF1AB8CF5900109830 /* CanvasViewController.swift in Sources */,
+				27DB474F1AC2087B004AF702 /* ActionButtonViewController.swift in Sources */,
+				272047871AC1F2C300CDF7D4 /* FrameInspectorViewController.swift in Sources */,
+				272047851AB8D08200CDF7D4 /* LayerView.swift in Sources */,
+				27DB47561AC32975004AF702 /* PositionInspectorViewController.swift in Sources */,
+				2720478A1AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift in Sources */,
+				27DB47521AC20BB8004AF702 /* LayerPropertyFormatter.swift in Sources */,
 				27C91AED1AB8C36E005F3CC8 /* AppDelegate.swift in Sources */,
 				27C91AF11AB8C36E005F3CC8 /* Document.swift in Sources */,
 			);
@@ -274,6 +306,7 @@
 				27C91B071AB8C36E005F3CC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
