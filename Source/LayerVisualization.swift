@@ -56,7 +56,7 @@ class BoundsTiledLayerDelegate : NSObject {
 
 class LayerVisualization {
 
-    private let frameShape = CAShapeLayer()
+    private let frameShape = CALayer()
     private let modelLayer = CALayer()
     private let tiledDelegate = BoundsTiledLayerDelegate()
 
@@ -119,9 +119,8 @@ class LayerVisualization {
         modelLayer.masksToBounds = true
         modelLayer.backgroundColor = NSColor.whiteColor().CGColor
 
-        frameShape.fillColor = nil
-        frameShape.strokeColor = NSColor.blueColor().CGColor
-        frameShape.lineWidth = 3
+        frameShape.borderWidth = 3
+        frameShape.borderColor = NSColor.blueColor().CGColor
     }
 
     func addToLayer(layer: CALayer) {
@@ -131,6 +130,5 @@ class LayerVisualization {
 
     func updateFrameShape() {
         frameShape.frame = modelLayer.frame
-        frameShape.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: modelLayer.frame.width, height: modelLayer.frame.height)), nil)
     }
 }
