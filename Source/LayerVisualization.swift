@@ -10,8 +10,11 @@ import Cocoa
 
 class BoundsTiledLayerDelegate : NSObject {
     let hashColors = [NSColor.greenColor(), NSColor.blackColor(), NSColor.yellowColor(), NSColor.orangeColor(), NSColor.cyanColor(), NSColor.magentaColor(), NSColor.purpleColor(), NSColor.brownColor()]
-    let hashSpacing = 50
-    let hashSize : CGFloat = 3.0
+    let hashSpacing = 100
+    let hashFactor = 100
+    let hashRadius : CGFloat = 8.0
+    let hashWidth : CGFloat = 2.0
+    let fontSize : CGFloat = 17.0
 
     func colorForHash(hash : CGPoint) -> NSColor {
         return hashColors[((Int(hash.x) + 2 * Int(hash.y)) / hashSpacing) % hashColors.count]
@@ -23,33 +26,28 @@ class BoundsTiledLayerDelegate : NSObject {
         let startY = (Int(box.origin.y) / hashSpacing) * hashSpacing
 
         CGContextSetTextMatrix(context, CGAffineTransformMakeScale(1, 1))
+        CGContextSetLineWidth(context, hashWidth)
 
         for var x = startX; CGFloat(x) < box.origin.x + box.size.width; x += hashSpacing {
             for var y = startY; CGFloat(y) < box.origin.y + box.size.height; y += hashSpacing {
                 let hash = CGPoint(x: x, y: y)
                 let color = colorForHash(hash)
-                let points = [ CGPoint(x: hash.x - hashSize, y: hash.y), CGPoint(x: hash.x + hashSize, y: hash.y),
-                               CGPoint(x: hash.x, y: hash.y - hashSize), CGPoint(x: hash.x, y: hash.y + hashSize)]
+                let points = [ CGPoint(x: hash.x - hashRadius, y: hash.y), CGPoint(x: hash.x + hashRadius, y: hash.y),
+                               CGPoint(x: hash.x, y: hash.y - hashRadius), CGPoint(x: hash.x, y: hash.y + hashRadius)]
                 CGContextSetStrokeColorWithColor(context, color.CGColor)
                 CGContextSetFillColorWithColor(context, color.CGColor)
                 CGContextStrokeLineSegments(context, points, 4)
 
-                if let font = NSFont(name: "Helvetica", size: 10.0) {
+                if let font = NSFont(name: "Helvetica", size: fontSize) {
                     let attributes = [ NSFontAttributeName : font, NSForegroundColorAttributeName : NSColor.blackColor() ]
-                    let xText = NSAttributedString(string: "(\(x)", attributes: attributes)
-                    let yText = NSAttributedString(string: " \(y))", attributes: attributes)
+                    let xText = NSAttributedString(string: "(\(x / hashFactor)", attributes: attributes)
+                    let yText = NSAttributedString(string: " \(y / hashFactor))", attributes: attributes)
+                    let xyText = NSAttributedString(string: "(\(x / hashFactor),\(y / hashFactor))", attributes: attributes)
 
                     CGContextSaveGState(context)
-                    CGContextSetTextPosition(context, hash.x + 2, hash.y - 8)
-                    CTLineDraw(CTLineCreateWithAttributedString(xText), context)
+                    CGContextSetTextPosition(context, hash.x + 7, hash.y + 7)
+                    CTLineDraw(CTLineCreateWithAttributedString(xyText), context)
                     CGContextRestoreGState(context)
-
-                    CGContextSaveGState(context)
-                    CGContextSetTextPosition(context, hash.x + 2, hash.y - 19)
-                    CTLineDraw(CTLineCreateWithAttributedString(yText), context)
-                    CGContextRestoreGState(context)
-
-                    CGContextFlush(context)
                 }
             }
         }
@@ -119,7 +117,7 @@ class LayerVisualization {
         modelLayer.addSublayer(frameShape)
 
         modelLayer.masksToBounds = true
-        modelLayer.backgroundColor = NSColor.lightGrayColor().CGColor
+        modelLayer.backgroundColor = NSColor.whiteColor().CGColor
 
         frameShape.fillColor = nil
         frameShape.strokeColor = NSColor.blueColor().CGColor

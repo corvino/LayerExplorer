@@ -14,11 +14,12 @@ class CanvasViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        self.view.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
 
-        let centerFramePoint = CGPoint(x: (self.view.bounds.size.width - 100) / 2, y: (self.view.bounds.size.height - 100) / 2)
+        let size = CGSize(width: 250, height: 250)
+        let centerFramePoint = CGPoint(x: (self.view.bounds.size.width - size.width) / 2, y: (self.view.bounds.size.height - size.height) / 2)
         layerVisualization = LayerVisualization()
-        layerVisualization!.frame = CGRect(origin: centerFramePoint, size: CGSize(width: 100, height: 100))
+        layerVisualization!.frame = CGRect(origin: centerFramePoint, size: size)
         layerVisualization!.addToLayer(self.view.layer!)
     }
 
