@@ -38,4 +38,8 @@ class InspectorPaneViewController: NSViewController, LayerPropertyFormatterDeleg
     func changesAnimated(notification: NSNotification) {}
 
     func animateChanges(notification: NSNotification) {}
+
+    func degreesToRadians(degrees: Double) -> Double {
+        return degrees * 2 * M_PI / 360
+    }
 }

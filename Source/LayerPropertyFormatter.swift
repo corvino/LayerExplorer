@@ -15,40 +15,59 @@ import Cocoa
 class LayerPropertyFormatter: NSNumberFormatter {
 
     @IBInspectable var allowsDecimal : Bool = false
+    @IBInspectable var maxDigits : Int = -1
     @IBOutlet weak var delegate : LayerPropertyFormatterDelegate?
 
     var dirty = false
 
     override func isPartialStringValid(partialStringPtr: AutoreleasingUnsafeMutablePointer<NSString?>, proposedSelectedRange: NSRangePointer, originalString: String, originalSelectedRange: NSRange, errorDescription: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool {
 
-        let digits = NSMutableCharacterSet.decimalDigitCharacterSet()
-        let decimal = NSCharacterSet(charactersInString: ".")
-        let minus = NSCharacterSet(charactersInString: "-")
-
         var valid = true
-        var canHaveDecimal = allowsDecimal
-        var canHaveNegative = true
 
         if let str = partialStringPtr.memory as? String {
-            for char in str.unicodeScalars {
-                if canHaveNegative {
-                    canHaveNegative = false
-                    if minus.longCharacterIsMember(char.value) {
-                        continue
+
+            if 0 < maxDigits {
+                var digits = maxDigits
+                if str.hasPrefix("-") {
+                    digits++
+                }
+                if nil != str.rangeOfString(".") {
+                    digits++
+                }
+                if digits < count(str) {
+                    valid = false
+                }
+            }
+
+            if (valid) {
+                let digits = NSMutableCharacterSet.decimalDigitCharacterSet()
+                let decimal = NSCharacterSet(charactersInString: ".")
+                let minus = NSCharacterSet(charactersInString: "-")
+
+                var canHaveDecimal = allowsDecimal
+                var canHaveNegative = true
+
+
+                for char in str.unicodeScalars {
+                    if canHaveNegative {
+                        canHaveNegative = false
+                        if minus.longCharacterIsMember(char.value) {
+                            continue
+                        }
+                    }
+
+                    if canHaveDecimal && decimal.longCharacterIsMember(char.value) {
+                        canHaveDecimal = false
+                    } else if !digits.longCharacterIsMember(char.value) {
+                        valid = false;
+                        break;
                     }
                 }
 
-                if canHaveDecimal && decimal.longCharacterIsMember(char.value) {
-                    canHaveDecimal = false
-                } else if !digits.longCharacterIsMember(char.value) {
-                    valid = false;
-                    break;
+                if (valid) {
+                    delegate?.markDirty()
                 }
             }
-        }
-
-        if (valid) {
-            delegate?.markDirty()
         }
 
         return valid

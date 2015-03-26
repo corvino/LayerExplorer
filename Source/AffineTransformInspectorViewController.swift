@@ -78,7 +78,7 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
     }
 
     @IBAction func rotateClicked(sender: AnyObject) {
-        let rotation = CGFloat(rotationTextField.doubleValue * 2 * M_PI / 360)
+        let rotation = CGFloat(degreesToRadians(rotationTextField.doubleValue))
 
         if NSOnState == rotateNewCheckBox.state {
             transform = CGAffineTransformMakeRotation(rotation)
