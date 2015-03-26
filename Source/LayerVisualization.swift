@@ -95,6 +95,14 @@ class LayerVisualization {
         }
     }
 
+    var anchorPointZ : CGFloat {
+        get { return modelLayer.anchorPointZ }
+        set(newAnchorPointZ) {
+            modelLayer.anchorPointZ = newAnchorPointZ
+            updateFrameShape()
+        }
+    }
+
     var affineTransform : CGAffineTransform {
         get { return modelLayer.affineTransform() }
         set(newAffineTransform) {
