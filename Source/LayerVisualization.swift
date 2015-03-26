@@ -25,6 +25,12 @@ class BoundsTiledLayerDelegate : NSObject {
         let startX = (Int(box.origin.x) / hashSpacing) * hashSpacing
         let startY = (Int(box.origin.y) / hashSpacing) * hashSpacing
 
+        var textAttributes : Dictionary<String, AnyObject>?
+        if let font = NSFont(name: "Helvetica", size: fontSize) {
+            // This is weird; we need to specify the foreground color, but it is the context stroke color that is displayed.
+            textAttributes = [ NSFontAttributeName : font, NSForegroundColorAttributeName : NSColor.blackColor() ]
+        }
+
         CGContextSetTextMatrix(context, CGAffineTransformMakeScale(1, 1))
         CGContextSetLineWidth(context, hashWidth)
 
@@ -38,17 +44,14 @@ class BoundsTiledLayerDelegate : NSObject {
                 CGContextSetFillColorWithColor(context, color.CGColor)
                 CGContextStrokeLineSegments(context, points, 4)
 
-                if let font = NSFont(name: "Helvetica", size: fontSize) {
-                    let attributes = [ NSFontAttributeName : font, NSForegroundColorAttributeName : NSColor.blackColor() ]
-                    let xText = NSAttributedString(string: "(\(x / hashFactor)", attributes: attributes)
-                    let yText = NSAttributedString(string: " \(y / hashFactor))", attributes: attributes)
-                    let xyText = NSAttributedString(string: "(\(x / hashFactor),\(y / hashFactor))", attributes: attributes)
+                let xDisplay = (x + Int(layer.frame.origin.x)) /  hashFactor
+                let yDisplay = (y + Int(layer.frame.origin.y)) / hashFactor
+                let xyText = NSAttributedString(string: "(\(xDisplay),\(yDisplay))", attributes: textAttributes)
 
-                    CGContextSaveGState(context)
-                    CGContextSetTextPosition(context, hash.x + 7, hash.y + 7)
-                    CTLineDraw(CTLineCreateWithAttributedString(xyText), context)
-                    CGContextRestoreGState(context)
-                }
+                CGContextSaveGState(context)
+                CGContextSetTextPosition(context, hash.x + 7, hash.y + 7)
+                CTLineDraw(CTLineCreateWithAttributedString(xyText), context)
+                CGContextRestoreGState(context)
             }
         }
     }
@@ -110,7 +113,7 @@ class LayerVisualization {
 
     init() {
         let tiledLayer = CATiledLayer()
-        tiledLayer.frame = CGRect(origin: CGPoint(x: 0, y:0), size: CGSize(width: 1000, height: 1000))
+        tiledLayer.frame = CGRect(origin: CGPoint(x: -5000, y:-5000), size: CGSize(width: 10000, height: 10000))
         tiledLayer.delegate = tiledDelegate
 
         modelLayer.addSublayer(tiledLayer)
