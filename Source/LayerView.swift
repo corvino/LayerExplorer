@@ -56,29 +56,83 @@ class BoundsTiledLayerDelegate : NSObject {
     }
 }
 
-class LayerView: NSView {
+class LayerView {
 
-    let tiledDelegate = BoundsTiledLayerDelegate()
-    let tiledLayer = CATiledLayer()
+    private let frameShape = CAShapeLayer()
+    private let modelLayer = CALayer()
+    private let tiledDelegate = BoundsTiledLayerDelegate()
 
-    override init(frame frameRect: NSRect) {
-        super.init(frame:frameRect)
-        doInit()
+    var frame : CGRect {
+        get { return modelLayer.frame }
+        set(newFrame) {
+            modelLayer.frame = newFrame
+            updateFrameShape()
+        }
     }
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        doInit()
+    var bounds: CGRect {
+        get { return modelLayer.bounds }
+        set(newFrame) {
+            modelLayer.bounds = newFrame
+            updateFrameShape()
+        }
     }
 
-    func doInit() {
-        self.wantsLayer = true
-        self.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
+    var position : CGPoint {
+        get { return modelLayer.position }
+        set(newPosition) {
+            modelLayer.position = newPosition
+            updateFrameShape()
+        }
+    }
 
-        tiledLayer.delegate = self.tiledDelegate
-        tiledLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 1000, height: 1000))
+    var anchorPoint : CGPoint {
+        get { return modelLayer.anchorPoint }
+        set(newAnchorPoint) {
+            modelLayer.anchorPoint = newAnchorPoint
+            updateFrameShape()
+        }
+    }
 
-        self.layer?.addSublayer(tiledLayer)
-        tiledLayer.setNeedsDisplay()
+    var affineTransform : CGAffineTransform {
+        get { return modelLayer.affineTransform() }
+        set(newAffineTransform) {
+            modelLayer.setAffineTransform(newAffineTransform)
+            updateFrameShape()
+        }
+    }
+
+    var transform : CATransform3D {
+        get { return modelLayer.transform }
+        set(newTransform) {
+            modelLayer.transform = newTransform
+            updateFrameShape()
+        }
+    }
+
+    init() {
+        let tiledLayer = CATiledLayer()
+        tiledLayer.frame = CGRect(origin: CGPoint(x: 0, y:0), size: CGSize(width: 1000, height: 1000))
+        tiledLayer.delegate = tiledDelegate
+
+        modelLayer.addSublayer(tiledLayer)
+        modelLayer.addSublayer(frameShape)
+
+        modelLayer.masksToBounds = true
+        modelLayer.backgroundColor = NSColor.lightGrayColor().CGColor
+
+        frameShape.fillColor = nil
+        frameShape.strokeColor = NSColor.blueColor().CGColor
+        frameShape.lineWidth = 3
+    }
+
+    func addToLayer(layer: CALayer) {
+        layer.addSublayer(modelLayer)
+        layer.addSublayer(frameShape)
+    }
+
+    func updateFrameShape() {
+        frameShape.frame = modelLayer.frame
+        frameShape.path = CGPathCreateWithRect(CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: modelLayer.frame.width, height: modelLayer.frame.height)), nil)
     }
 }

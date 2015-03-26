@@ -17,8 +17,9 @@ class CanvasViewController: NSViewController {
         self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
 
         let centerFramePoint = CGPoint(x: (self.view.bounds.size.width - 100) / 2, y: (self.view.bounds.size.height - 100) / 2)
-        layerView = LayerView(frame: CGRect(origin: centerFramePoint, size: CGSize(width: 100, height: 100)))
-        self.view.addSubview(layerView!)
+        layerView = LayerView()
+        layerView!.frame = CGRect(origin: centerFramePoint, size: CGSize(width: 100, height: 100))
+        layerView!.addToLayer(self.view.layer!)
     }
 
     override func viewDidAppear() {

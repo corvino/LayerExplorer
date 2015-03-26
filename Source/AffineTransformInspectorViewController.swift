@@ -40,9 +40,8 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
     override func changesAnimated(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if let layer = layerView?.layer! {
-            transform = layer.affineTransform()
-
+        if let newTransform = layerView?.affineTransform {
+            transform = newTransform
             readFieldsFromTranform()
         }
     }
@@ -51,9 +50,9 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
         super.animateChanges(notification)
 
         if dirty {
-            if let layer = layerView?.layer {
+            if nil != layerView {
                 readTransformFromFields()
-                layer.setAffineTransform(transform)
+                layerView?.affineTransform = transform
                 dirty = false
             }
         }

@@ -18,11 +18,11 @@ class PositionInspectorViewController: InspectorPaneViewController {
     override func changesAnimated(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if let layer = layerView?.layer! {
-            self.positionXTextField.stringValue = "\(layer.position.x)"
-            self.positionYTextField.stringValue = "\(layer.position.y)"
-            self.anchorPointXTextField.stringValue = "\(layer.anchorPoint.x)"
-            self.anchorPointYTextField.stringValue = "\(layer.anchorPoint.y)"
+        if let position = layerView?.position, let anchorPoint = layerView?.anchorPoint {
+            self.positionXTextField.stringValue = "\(position.x)"
+            self.positionYTextField.stringValue = "\(position.y)"
+            self.anchorPointXTextField.stringValue = "\(anchorPoint.x)"
+            self.anchorPointYTextField.stringValue = "\(anchorPoint.y)"
         }
     }
 
@@ -30,12 +30,9 @@ class PositionInspectorViewController: InspectorPaneViewController {
         super.animateChanges(notification)
 
         if dirty {
-            if let layer = layerView?.layer {
-                let position = CGPoint(x: positionXTextField.doubleValue, y: positionYTextField.doubleValue)
-                let anchorPoint = CGPoint(x: anchorPointXTextField.doubleValue, y: anchorPointYTextField.doubleValue)
-
-                layer.position = position
-                layer.anchorPoint = anchorPoint
+            if nil != layerView {
+                layerView?.position = CGPoint(x: positionXTextField.doubleValue, y: positionYTextField.doubleValue)
+                layerView?.anchorPoint = CGPoint(x: anchorPointXTextField.doubleValue, y: anchorPointYTextField.doubleValue)
 
                 dirty = false
             }

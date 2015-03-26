@@ -13,9 +13,8 @@ class ActionButtonViewController: NSViewController {
     @IBAction func goClicked(sender: AnyObject) {
 
         CATransaction.begin()
-        CATransaction.setDisableActions(false)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut))
-        CATransaction.setAnimationDuration(5.8)
+        CATransaction.setAnimationDuration(0.8)
         NSNotificationCenter.defaultCenter().postNotificationName("AnimateChanges", object: sender)
         CATransaction.commit()
 
