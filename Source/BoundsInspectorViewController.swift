@@ -18,7 +18,7 @@ class BoundsInspectorViewController: InspectorPaneViewController {
     override func changesAnimated(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if let bounds = self.layerView?.bounds {
+        if let bounds = layerVisualization?.bounds {
             self.xTextField.stringValue = "\(bounds.origin.x)"
             self.yTextField.stringValue = "\(bounds.origin.y)"
             self.widthTextField.stringValue = "\(bounds.size.width)"
@@ -30,7 +30,7 @@ class BoundsInspectorViewController: InspectorPaneViewController {
         super.animateChanges(notification)
 
         if dirty {
-            layerView?.bounds = CGRect(origin: CGPoint(x: self.xTextField.doubleValue, y: self.yTextField.doubleValue), size: CGSize(width: self.widthTextField.doubleValue, height: self.heightTextField.doubleValue))
+            layerVisualization?.bounds = CGRect(origin: CGPoint(x: self.xTextField.doubleValue, y: self.yTextField.doubleValue), size: CGSize(width: self.widthTextField.doubleValue, height: self.heightTextField.doubleValue))
             dirty = false
         }
     }

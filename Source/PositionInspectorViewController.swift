@@ -18,7 +18,7 @@ class PositionInspectorViewController: InspectorPaneViewController {
     override func changesAnimated(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if let position = layerView?.position, let anchorPoint = layerView?.anchorPoint {
+        if let position = layerVisualization?.position, let anchorPoint = layerVisualization?.anchorPoint {
             self.positionXTextField.stringValue = "\(position.x)"
             self.positionYTextField.stringValue = "\(position.y)"
             self.anchorPointXTextField.stringValue = "\(anchorPoint.x)"
@@ -29,13 +29,11 @@ class PositionInspectorViewController: InspectorPaneViewController {
     override func animateChanges(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if dirty {
-            if nil != layerView {
-                layerView?.position = CGPoint(x: positionXTextField.doubleValue, y: positionYTextField.doubleValue)
-                layerView?.anchorPoint = CGPoint(x: anchorPointXTextField.doubleValue, y: anchorPointYTextField.doubleValue)
+        if dirty && nil != layerVisualization {
+            layerVisualization!.position = CGPoint(x: positionXTextField.doubleValue, y: positionYTextField.doubleValue)
+            layerVisualization!.anchorPoint = CGPoint(x: anchorPointXTextField.doubleValue, y: anchorPointYTextField.doubleValue)
 
-                dirty = false
-            }
+            dirty = false
         }
     }
 }

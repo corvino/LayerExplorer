@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		272047851AB8D08200CDF7D4 /* LayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047841AB8D08200CDF7D4 /* LayerView.swift */; };
+		272047851AB8D08200CDF7D4 /* LayerVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047841AB8D08200CDF7D4 /* LayerVisualization.swift */; };
 		272047871AC1F2C300CDF7D4 /* FrameInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047861AC1F2C300CDF7D4 /* FrameInspectorViewController.swift */; };
 		2720478A1AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272047881AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift */; };
 		2722F3431AC4727500D9E61D /* TransformInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722F3411AC4727500D9E61D /* TransformInspectorViewController.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		272047841AB8D08200CDF7D4 /* LayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerView.swift; sourceTree = "<group>"; };
+		272047841AB8D08200CDF7D4 /* LayerVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerVisualization.swift; sourceTree = "<group>"; };
 		272047861AC1F2C300CDF7D4 /* FrameInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameInspectorViewController.swift; sourceTree = "<group>"; };
 		272047881AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundsInspectorViewController.swift; sourceTree = "<group>"; };
 		2722F3411AC4727500D9E61D /* TransformInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformInspectorViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				27A407EE1AB8CF5900109830 /* CanvasViewController.swift */,
 				27C91AF01AB8C36E005F3CC8 /* Document.swift */,
 				27DB47511AC20BB8004AF702 /* LayerPropertyFormatter.swift */,
-				272047841AB8D08200CDF7D4 /* LayerView.swift */,
+				272047841AB8D08200CDF7D4 /* LayerVisualization.swift */,
 				27C91AF41AB8C36E005F3CC8 /* Main.storyboard */,
 			);
 			path = Source;
@@ -172,7 +172,7 @@
 				27DB474F1AC2087B004AF702 /* ActionButtonViewController.swift in Sources */,
 				272047871AC1F2C300CDF7D4 /* FrameInspectorViewController.swift in Sources */,
 				2722F3431AC4727500D9E61D /* TransformInspectorViewController.swift in Sources */,
-				272047851AB8D08200CDF7D4 /* LayerView.swift in Sources */,
+				272047851AB8D08200CDF7D4 /* LayerVisualization.swift in Sources */,
 				27DB47591AC34CCD004AF702 /* InspectorPaneViewController.swift in Sources */,
 				27DB47561AC32975004AF702 /* PositionInspectorViewController.swift in Sources */,
 				2720478A1AC1FE2F00CDF7D4 /* BoundsInspectorViewController.swift in Sources */,

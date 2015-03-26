@@ -56,7 +56,7 @@ class BoundsTiledLayerDelegate : NSObject {
     }
 }
 
-class LayerView {
+class LayerVisualization {
 
     private let frameShape = CAShapeLayer()
     private let modelLayer = CALayer()

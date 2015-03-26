@@ -10,7 +10,7 @@ import Cocoa
 
 class InspectorPaneViewController: NSViewController, LayerPropertyFormatterDelegate {
 
-    var layerView : LayerView?
+    var layerVisualization : LayerVisualization?
     var dirty : Bool = false
 
     deinit {
@@ -30,7 +30,7 @@ class InspectorPaneViewController: NSViewController, LayerPropertyFormatterDeleg
     }
 
     func layerSelected(notification: NSNotification) {
-        layerView = notification.userInfo!["Layer"] as! LayerView?
+        layerVisualization = notification.userInfo!["Layer"] as! LayerVisualization?
 
         changesAnimated(notification)
     }

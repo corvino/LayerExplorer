@@ -18,7 +18,7 @@ class FrameInspectorViewController: InspectorPaneViewController  {
     override func changesAnimated(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if let frame = super.layerView?.frame {
+        if let frame = layerVisualization?.frame {
             self.xTextField.stringValue = "\(frame.origin.x)"
             self.yTextField.stringValue = "\(frame.origin.y)"
             self.widthTextField.stringValue = "\(frame.size.width)"
@@ -30,7 +30,7 @@ class FrameInspectorViewController: InspectorPaneViewController  {
         super.animateChanges(notification)
 
         if dirty {
-            layerView?.frame = CGRect(origin: CGPoint(x: self.xTextField.doubleValue, y: self.yTextField.doubleValue), size: CGSize(width: self.widthTextField.doubleValue, height: self.heightTextField.doubleValue))
+            layerVisualization?.frame = CGRect(origin: CGPoint(x: self.xTextField.doubleValue, y: self.yTextField.doubleValue), size: CGSize(width: self.widthTextField.doubleValue, height: self.heightTextField.doubleValue))
             dirty = false
         }
     }

@@ -66,8 +66,8 @@ class TransformInspectorViewController: InspectorPaneViewController {
     override func changesAnimated(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if nil != layerView {
-            transform = layerView!.transform
+        if nil != layerVisualization {
+            transform = layerVisualization!.transform
             readFieldsFromTranform()
         }
     }
@@ -75,9 +75,9 @@ class TransformInspectorViewController: InspectorPaneViewController {
     override func animateChanges(notification: NSNotification) {
         super.animateChanges(notification)
 
-        if dirty && nil != layerView {
+        if dirty && nil != layerVisualization {
             readTransformFromFields()
-            layerView!.transform = transform
+            layerVisualization!.transform = transform
             dirty = false
         }
     }
