@@ -60,6 +60,7 @@ class BoundsTiledLayerDelegate : NSObject {
 class LayerVisualization {
 
     private let frameShape = CALayer()
+    private let anchorDot = CAShapeLayer()
     private let modelLayer = CALayer()
     private let tiledDelegate = BoundsTiledLayerDelegate()
 
@@ -67,7 +68,7 @@ class LayerVisualization {
         get { return modelLayer.frame }
         set(newFrame) {
             modelLayer.frame = newFrame
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -75,7 +76,7 @@ class LayerVisualization {
         get { return modelLayer.bounds }
         set(newFrame) {
             modelLayer.bounds = newFrame
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -83,7 +84,7 @@ class LayerVisualization {
         get { return modelLayer.position }
         set(newPosition) {
             modelLayer.position = newPosition
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -91,7 +92,7 @@ class LayerVisualization {
         get { return modelLayer.anchorPoint }
         set(newAnchorPoint) {
             modelLayer.anchorPoint = newAnchorPoint
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -99,7 +100,7 @@ class LayerVisualization {
         get { return modelLayer.anchorPointZ }
         set(newAnchorPointZ) {
             modelLayer.anchorPointZ = newAnchorPointZ
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -107,7 +108,7 @@ class LayerVisualization {
         get { return modelLayer.affineTransform() }
         set(newAffineTransform) {
             modelLayer.setAffineTransform(newAffineTransform)
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -115,7 +116,7 @@ class LayerVisualization {
         get { return modelLayer.transform }
         set(newTransform) {
             modelLayer.transform = newTransform
-            updateFrameShape()
+            updateVisualizations()
         }
     }
 
@@ -125,10 +126,12 @@ class LayerVisualization {
         tiledLayer.delegate = tiledDelegate
 
         modelLayer.addSublayer(tiledLayer)
-        modelLayer.addSublayer(frameShape)
 
         modelLayer.masksToBounds = true
         modelLayer.backgroundColor = NSColor.whiteColor().CGColor
+
+        anchorDot.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 15, height: 15))
+        anchorDot.path = CGPathCreateWithEllipseInRect(anchorDot.frame, nil)
 
         frameShape.borderWidth = 3
         frameShape.borderColor = NSColor.blueColor().CGColor
@@ -137,9 +140,17 @@ class LayerVisualization {
     func addToLayer(layer: CALayer) {
         layer.addSublayer(modelLayer)
         layer.addSublayer(frameShape)
+        layer.addSublayer(anchorDot)
+        updateVisualizations()
     }
 
-    func updateFrameShape() {
+    func updateVisualizations() {
         frameShape.frame = modelLayer.frame
+        if let superlayer = modelLayer.superlayer {
+            var newPosition = CGPoint(x: anchorPoint.x * bounds.width, y: anchorPoint.y * bounds.height)
+            newPosition = modelLayer.superlayer.convertPoint(newPosition, fromLayer: modelLayer)
+            anchorDot.position = newPosition
+        }
+
     }
 }
