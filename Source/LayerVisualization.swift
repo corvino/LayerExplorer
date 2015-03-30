@@ -130,6 +130,7 @@ class LayerVisualization {
         modelLayer.masksToBounds = true
         modelLayer.backgroundColor = NSColor.whiteColor().CGColor
 
+        anchorDot.zPosition = CGFloat.max
         anchorDot.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 15, height: 15))
         anchorDot.path = CGPathCreateWithEllipseInRect(anchorDot.frame, nil)
 
