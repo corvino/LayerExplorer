@@ -139,6 +139,12 @@ class LayerVisualization {
     }
 
     func addToLayer(layer: CALayer) {
+        let contentsScale = layer.contentsScale
+
+        modelLayer.contentsScale = contentsScale
+        frameShape.contentsScale = contentsScale
+        anchorDot.contentsScale = contentsScale
+
         layer.addSublayer(modelLayer)
         layer.addSublayer(frameShape)
         layer.addSublayer(anchorDot)
@@ -148,10 +154,9 @@ class LayerVisualization {
     func updateVisualizations() {
         frameShape.frame = modelLayer.frame
         if let superlayer = modelLayer.superlayer {
-            var newPosition = CGPoint(x: anchorPoint.x * bounds.width, y: anchorPoint.y * bounds.height)
+            var newPosition = CGPoint(x: anchorPoint.x * bounds.width + bounds.origin.x, y: anchorPoint.y * bounds.height + bounds.origin.y)
             newPosition = modelLayer.superlayer.convertPoint(newPosition, fromLayer: modelLayer)
             anchorDot.position = newPosition
         }
-
     }
 }
