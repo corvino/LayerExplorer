@@ -14,32 +14,32 @@ class InspectorPaneViewController: NSViewController, LayerPropertyFormatterDeleg
     var dirty : Bool = false
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "layerSelected:", name: "LayerSelected", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "animateChanges:", name: "AnimateChanges", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changesAnimated:", name: "ChangesAnimated", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InspectorPaneViewController.layerSelected(_:)), name: NSNotification.Name(rawValue: "LayerSelected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InspectorPaneViewController.animateChanges(_:)), name: NSNotification.Name(rawValue: "AnimateChanges"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InspectorPaneViewController.changesAnimated(_:)), name: NSNotification.Name(rawValue: "ChangesAnimated"), object: nil)
     }
 
     func markDirty() {
         dirty = true
     }
 
-    func layerSelected(notification: NSNotification) {
-        layerVisualization = notification.userInfo!["Layer"] as! LayerVisualization?
+    func layerSelected(_ notification: Notification) {
+        layerVisualization = (notification as NSNotification).userInfo!["Layer"] as! LayerVisualization?
 
         changesAnimated(notification)
     }
 
-    func changesAnimated(notification: NSNotification) {}
+    func changesAnimated(_ notification: Notification) {}
 
-    func animateChanges(notification: NSNotification) {}
+    func animateChanges(_ notification: Notification) {}
 
-    func degreesToRadians(degrees: Double) -> Double {
+    func degreesToRadians(_ degrees: Double) -> Double {
         return degrees * 2 * M_PI / 360
     }
 }

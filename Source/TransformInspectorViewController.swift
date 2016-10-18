@@ -63,7 +63,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
         readConcatFromIdentity()
     }
 
-    override func changesAnimated(notification: NSNotification) {
+    override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
         if nil != layerVisualization {
@@ -72,7 +72,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
         }
     }
 
-    override func animateChanges(notification: NSNotification) {
+    override func animateChanges(_ notification: Notification) {
         super.animateChanges(notification)
 
         if dirty && nil != layerVisualization {
@@ -141,14 +141,14 @@ class TransformInspectorViewController: InspectorPaneViewController {
         concatM44TextField.doubleValue = Double(identity.m44)
     }
 
-    @IBAction func invertClicked(sender: AnyObject) {
+    @IBAction func invertClicked(_ sender: AnyObject) {
         transform = CATransform3DInvert(transform)
 
         readFieldsFromTranform()
         dirty = true
     }
 
-    @IBAction func scaleClicked(sender: AnyObject) {
+    @IBAction func scaleClicked(_ sender: AnyObject) {
         let sx = CGFloat(sxTextField.doubleValue)
         let sy = CGFloat(syTextField.doubleValue)
         let sz = CGFloat(szTextField.doubleValue)
@@ -163,7 +163,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
         dirty = true
     }
 
-    @IBAction func rotateClicked(sender: AnyObject) {
+    @IBAction func rotateClicked(_ sender: AnyObject) {
         let angle = CGFloat(degreesToRadians(angleTextField.doubleValue))
         let x = CGFloat(xTextField.doubleValue)
         let y = CGFloat(xTextField.doubleValue)
@@ -179,7 +179,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
         dirty = true
     }
 
-    @IBAction func concatClicked(sender: AnyObject) {
+    @IBAction func concatClicked(_ sender: AnyObject) {
         let m11 = CGFloat(concatM11TextField.doubleValue)
         let m12 = CGFloat(concatM12TextField.doubleValue)
         let m13 = CGFloat(concatM13TextField.doubleValue)
@@ -208,7 +208,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
         dirty = true
     }
 
-    @IBAction func identityClicked(sender: AnyObject) {
+    @IBAction func identityClicked(_ sender: AnyObject) {
         readConcatFromIdentity()
     }
 }

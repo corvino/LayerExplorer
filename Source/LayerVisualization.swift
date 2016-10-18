@@ -8,61 +8,64 @@
 
 import Cocoa
 
-class BoundsTiledLayerDelegate : NSObject {
-    let hashColors = [NSColor.greenColor(), NSColor.blackColor(), NSColor.yellowColor(), NSColor.orangeColor(), NSColor.cyanColor(), NSColor.magentaColor(), NSColor.purpleColor(), NSColor.brownColor()]
+class BoundsTiledLayerDelegate : NSObject, CALayerDelegate {
+    let hashColors = [NSColor.green, NSColor.black, NSColor.yellow, NSColor.orange, NSColor.cyan, NSColor.magenta, NSColor.purple, NSColor.brown]
     let hashSpacing = 100
     let hashFactor = 100
     let hashRadius : CGFloat = 8.0
     let hashWidth : CGFloat = 2.0
     let fontSize : CGFloat = 17.0
 
-    func colorForHash(hash : CGPoint) -> NSColor {
+    func colorForHash(_ hash : CGPoint) -> NSColor {
         return hashColors[((Int(hash.x) + 2 * Int(hash.y)) / hashSpacing) % hashColors.count]
     }
 
-    override func drawLayer(layer : CALayer, inContext context: CGContextRef) {
-        let box = CGContextGetClipBoundingBox(context)
+    func draw(_ layer: CALayer, in context: CGContext) {
+        let box = context.boundingBoxOfClipPath
         let startX = (Int(box.origin.x) / hashSpacing) * hashSpacing
         let startY = (Int(box.origin.y) / hashSpacing) * hashSpacing
 
-        var textAttributes : Dictionary<String, AnyObject>?
-        if let font = NSFont(name: "Helvetica", size: fontSize) {
-            // This is weird; we need to specify the foreground color, but it is the context stroke color that is displayed.
-            textAttributes = [ NSFontAttributeName : font, NSForegroundColorAttributeName : NSColor.blackColor() ]
-        }
+        // We know this font is there, so "cheat" and use crash operator.
+        let font = NSFont(name: "Helvetica", size: fontSize)!
 
-        CGContextSetTextMatrix(context, CGAffineTransformMakeScale(1, 1))
-        CGContextSetLineWidth(context, hashWidth)
+        context.textMatrix = CGAffineTransform(scaleX: 1, y: 1)
+        context.setLineWidth(hashWidth)
 
-        for var x = startX; CGFloat(x) < box.origin.x + box.size.width; x += hashSpacing {
-            for var y = startY; CGFloat(y) < box.origin.y + box.size.height; y += hashSpacing {
+        var x = startX
+        while CGFloat(x) < box.origin.x + box.size.width {
+            var y = startY
+            while CGFloat(y) < box.origin.y + box.size.height {
                 let hash = CGPoint(x: x, y: y)
                 let color = colorForHash(hash)
                 let points = [ CGPoint(x: hash.x - hashRadius, y: hash.y), CGPoint(x: hash.x + hashRadius, y: hash.y),
                                CGPoint(x: hash.x, y: hash.y - hashRadius), CGPoint(x: hash.x, y: hash.y + hashRadius)]
-                CGContextSetStrokeColorWithColor(context, color.CGColor)
-                CGContextSetFillColorWithColor(context, color.CGColor)
-                CGContextStrokeLineSegments(context, points, 4)
+                context.setStrokeColor(color.cgColor)
+                context.setFillColor(color.cgColor)
+                context.strokeLineSegments(between: points)
+
+                let textAttributes = [ NSFontAttributeName : font, NSForegroundColorAttributeName : color ]
 
                 let xDisplay = (x + Int(layer.frame.origin.x)) /  hashFactor
                 let yDisplay = (y + Int(layer.frame.origin.y)) / hashFactor
                 let xyText = NSAttributedString(string: "(\(xDisplay),\(yDisplay))", attributes: textAttributes)
 
-                CGContextSaveGState(context)
-                CGContextSetTextPosition(context, hash.x + 7, hash.y + 7)
+                context.saveGState()
+                context.textPosition = CGPoint(x: hash.x + 7, y: hash.y + 7)
                 CTLineDraw(CTLineCreateWithAttributedString(xyText), context)
-                CGContextRestoreGState(context)
+                context.restoreGState()
+                y += hashSpacing
             }
+            x += hashSpacing
         }
     }
 }
 
 class LayerVisualization {
 
-    private let frameShape = CALayer()
-    private let anchorDot = CAShapeLayer()
-    private let modelLayer = CALayer()
-    private let tiledDelegate = BoundsTiledLayerDelegate()
+    fileprivate let frameShape = CALayer()
+    fileprivate let anchorDot = CAShapeLayer()
+    fileprivate let modelLayer = CALayer()
+    fileprivate let tiledDelegate = BoundsTiledLayerDelegate()
 
     var frame : CGRect {
         get { return modelLayer.frame }
@@ -128,17 +131,17 @@ class LayerVisualization {
         modelLayer.addSublayer(tiledLayer)
 
         modelLayer.masksToBounds = true
-        modelLayer.backgroundColor = NSColor.whiteColor().CGColor
+        modelLayer.backgroundColor = NSColor.white.cgColor
 
-        anchorDot.zPosition = CGFloat.max
+        anchorDot.zPosition = CGFloat.greatestFiniteMagnitude
         anchorDot.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 15, height: 15))
-        anchorDot.path = CGPathCreateWithEllipseInRect(anchorDot.frame, nil)
+        anchorDot.path = CGPath(ellipseIn: anchorDot.frame, transform: nil)
 
         frameShape.borderWidth = 3
-        frameShape.borderColor = NSColor.blueColor().CGColor
+        frameShape.borderColor = NSColor.blue.cgColor
     }
 
-    func addToLayer(layer: CALayer) {
+    func addToLayer(_ layer: CALayer) {
         let contentsScale = layer.contentsScale
 
         modelLayer.contentsScale = contentsScale
@@ -153,9 +156,9 @@ class LayerVisualization {
 
     func updateVisualizations() {
         frameShape.frame = modelLayer.frame
-        if let superlayer = modelLayer.superlayer {
+        if let _ = modelLayer.superlayer {
             var newPosition = CGPoint(x: anchorPoint.x * bounds.width + bounds.origin.x, y: anchorPoint.y * bounds.height + bounds.origin.y)
-            newPosition = modelLayer.superlayer.convertPoint(newPosition, fromLayer: modelLayer)
+            newPosition = (modelLayer.superlayer?.convert(newPosition, from: modelLayer))!
             anchorDot.position = newPosition
         }
     }

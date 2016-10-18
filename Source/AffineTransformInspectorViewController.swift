@@ -10,7 +10,7 @@ import Cocoa
 
 class AffineTransformInspectorViewController: InspectorPaneViewController {
 
-    var transform = CGAffineTransformIdentity
+    var transform = CGAffineTransform.identity
 
     @IBOutlet weak var aTextField: NSTextField!
     @IBOutlet weak var bTextField: NSTextField!
@@ -37,7 +37,7 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var concatTxTextField: NSTextField!
     @IBOutlet weak var concatTyTextField: NSTextField!
 
-    override func changesAnimated(notification: NSNotification) {
+    override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
         if let newTransform = layerVisualization?.affineTransform {
@@ -46,7 +46,7 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
         }
     }
 
-    override func animateChanges(notification: NSNotification) {
+    override func animateChanges(_ notification: Notification) {
         super.animateChanges(notification)
 
         if dirty {
@@ -76,41 +76,41 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
         tyTextField.doubleValue = Double(transform.ty)
     }
 
-    @IBAction func rotateClicked(sender: AnyObject) {
+    @IBAction func rotateClicked(_ sender: AnyObject) {
         let rotation = CGFloat(degreesToRadians(rotationTextField.doubleValue))
 
         if NSOnState == rotateNewCheckBox.state {
-            transform = CGAffineTransformMakeRotation(rotation)
+            transform = CGAffineTransform(rotationAngle: rotation)
         } else {
-            transform = CGAffineTransformRotate(transform, rotation)
+            transform = transform.rotated(by: rotation)
         }
 
         readFieldsFromTranform()
         dirty = true
     }
 
-    @IBAction func scaleClicked(sender: AnyObject) {
+    @IBAction func scaleClicked(_ sender: AnyObject) {
         let sx = CGFloat(sxTextField.doubleValue)
         let sy = CGFloat(syTextField.doubleValue)
 
         if NSOnState == scaleNewCheckbox.state {
-            transform = CGAffineTransformMakeScale(sx, sy)
+            transform = CGAffineTransform(scaleX: sx, y: sy)
         } else {
-            transform = CGAffineTransformScale(transform, sx, sy)
+            transform = transform.scaledBy(x: sx, y: sy)
         }
 
         readFieldsFromTranform()
         dirty = true
     }
 
-    @IBAction func translateClicked(sender: AnyObject) {
+    @IBAction func translateClicked(_ sender: AnyObject) {
         let tx = CGFloat(translateTxTextField.doubleValue)
         let ty = CGFloat(translateTyTextField.doubleValue)
 
         if NSOnState == translateNewCheckbox.state {
-            transform = CGAffineTransformMakeTranslation(tx, ty)
+            transform = CGAffineTransform(translationX: tx, y: ty)
         } else {
-            transform = CGAffineTransformTranslate(transform, tx, ty)
+            transform = transform.translatedBy(x: tx, y: ty)
         }
 
         readFieldsFromTranform()
@@ -118,9 +118,9 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
     }
 
 
-    @IBAction func concatClicked(sender: AnyObject) {
+    @IBAction func concatClicked(_ sender: AnyObject) {
         let concatTransform = CGAffineTransform(a: CGFloat(concatATextField.doubleValue), b: CGFloat(concatBTextField.doubleValue), c: CGFloat(concatCTextField.doubleValue), d: CGFloat(concatDTextField.doubleValue), tx: CGFloat(concatTxTextField.doubleValue), ty: CGFloat(concatTyTextField.doubleValue))
-        transform = CGAffineTransformConcat(transform, concatTransform)
+        transform = transform.concatenating(concatTransform)
 
         readFieldsFromTranform()
         dirty = true

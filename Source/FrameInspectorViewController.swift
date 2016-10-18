@@ -15,7 +15,7 @@ class FrameInspectorViewController: InspectorPaneViewController  {
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var heightTextField: NSTextField!
 
-    override func changesAnimated(notification: NSNotification) {
+    override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
         if let frame = layerVisualization?.frame {
@@ -26,7 +26,7 @@ class FrameInspectorViewController: InspectorPaneViewController  {
         }
     }
 
-    override func animateChanges(notification: NSNotification) {
+    override func animateChanges(_ notification: Notification) {
         super.animateChanges(notification)
 
         if dirty {

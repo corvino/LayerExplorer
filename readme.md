@@ -18,6 +18,9 @@ The layer's origin is different on OS X than on iOS. OS X has the origin at the 
 
 ### ToDo List and Brainstorming
 
+* Improve "layer access". This should use a layer hosting rather than a
+  layer backed view for the layer that we are going to manipulate
+  directly. But for now this works.
 * Turn inspector sidebar into vertile panes, like in Xcode.
 * Show editing history; add undo and replay.
 * Allow scrolling of canvas and show rulers.

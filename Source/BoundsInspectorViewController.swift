@@ -15,7 +15,7 @@ class BoundsInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var heightTextField: NSTextField!
 
-    override func changesAnimated(notification: NSNotification) {
+    override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
         if let bounds = layerVisualization?.bounds {
@@ -26,7 +26,7 @@ class BoundsInspectorViewController: InspectorPaneViewController {
         }
     }
 
-    override func animateChanges(notification: NSNotification) {
+    override func animateChanges(_ notification: Notification) {
         super.animateChanges(notification)
 
         if dirty {

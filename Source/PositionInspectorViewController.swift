@@ -16,7 +16,7 @@ class PositionInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var anchorPointYTextField: NSTextField!
     @IBOutlet weak var anchorPointZTextField: NSTextField!
 
-    override func changesAnimated(notification: NSNotification) {
+    override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
         if let position = layerVisualization?.position, let anchorPoint = layerVisualization?.anchorPoint, let anchorPointZ = layerVisualization?.anchorPointZ {
@@ -28,7 +28,7 @@ class PositionInspectorViewController: InspectorPaneViewController {
         }
     }
 
-    override func animateChanges(notification: NSNotification) {
+    override func animateChanges(_ notification: Notification) {
         super.animateChanges(notification)
 
         if dirty && nil != layerVisualization {
