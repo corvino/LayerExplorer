@@ -11,6 +11,7 @@ import Cocoa
 class TransformInspectorViewController: InspectorPaneViewController {
 
     var transform = CATransform3DIdentity
+    var sublayerTransform = CATransform3DIdentity
 
     @IBOutlet weak var m11TextField: NSTextField!
     @IBOutlet weak var m12TextField: NSTextField!
@@ -57,6 +58,23 @@ class TransformInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var concatM43TextField: NSTextField!
     @IBOutlet weak var concatM44TextField: NSTextField!
 
+    @IBOutlet weak var subTransM11TextField: NSTextField!
+    @IBOutlet weak var subTransM12TextField: NSTextField!
+    @IBOutlet weak var subTransM13TextField: NSTextField!
+    @IBOutlet weak var subTransM14TextField: NSTextField!
+    @IBOutlet weak var subTransM21TextField: NSTextField!
+    @IBOutlet weak var subTransM22TextField: NSTextField!
+    @IBOutlet weak var subTransM23TextField: NSTextField!
+    @IBOutlet weak var subTransM24TextField: NSTextField!
+    @IBOutlet weak var subTransM31TextField: NSTextField!
+    @IBOutlet weak var subTransM32TextField: NSTextField!
+    @IBOutlet weak var subTransM33TextField: NSTextField!
+    @IBOutlet weak var subTransM34TextField: NSTextField!
+    @IBOutlet weak var subTransM41TextField: NSTextField!
+    @IBOutlet weak var subTransM42TextField: NSTextField!
+    @IBOutlet weak var subTransM43TextField: NSTextField!
+    @IBOutlet weak var subTransM44TextField: NSTextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,18 +84,25 @@ class TransformInspectorViewController: InspectorPaneViewController {
     override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
-        if nil != layerVisualization {
-            transform = layerVisualization!.transform
-            readFieldsFromTranform()
+        if let layerVisualization = layerVisualization {
+            transform = layerVisualization.transform
+            sublayerTransform = layerVisualization.sublayerTransform
+
+            readFieldsFromTransform()
+            readFieldsFromSublayerTransform()
         }
     }
 
     override func animateChanges(_ notification: Notification) {
         super.animateChanges(notification)
 
-        if dirty && nil != layerVisualization {
+        guard var layerVisualization = layerVisualization else { return }
+        readSublayerTransformFromFields()
+        layerVisualization.sublayerTransform = sublayerTransform
+
+        if dirty {
             readTransformFromFields()
-            layerVisualization!.transform = transform
+            layerVisualization.transform = transform
             dirty = false
         }
     }
@@ -101,7 +126,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
         transform.m44 = CGFloat(m44TextField.doubleValue)
     }
 
-    func readFieldsFromTranform() {
+    func readFieldsFromTransform() {
         m11TextField.doubleValue = Double(transform.m11)
         m12TextField.doubleValue = Double(transform.m12)
         m13TextField.doubleValue = Double(transform.m13)
@@ -118,6 +143,44 @@ class TransformInspectorViewController: InspectorPaneViewController {
         m42TextField.doubleValue = Double(transform.m42)
         m43TextField.doubleValue = Double(transform.m43)
         m44TextField.doubleValue = Double(transform.m44)
+    }
+
+    func readSublayerTransformFromFields() {
+        sublayerTransform.m11 = CGFloat(subTransM11TextField.doubleValue)
+        sublayerTransform.m12 = CGFloat(subTransM12TextField.doubleValue)
+        sublayerTransform.m13 = CGFloat(subTransM13TextField.doubleValue)
+        sublayerTransform.m14 = CGFloat(subTransM14TextField.doubleValue)
+        sublayerTransform.m21 = CGFloat(subTransM21TextField.doubleValue)
+        sublayerTransform.m22 = CGFloat(subTransM22TextField.doubleValue)
+        sublayerTransform.m23 = CGFloat(subTransM23TextField.doubleValue)
+        sublayerTransform.m24 = CGFloat(subTransM24TextField.doubleValue)
+        sublayerTransform.m31 = CGFloat(subTransM31TextField.doubleValue)
+        sublayerTransform.m32 = CGFloat(subTransM32TextField.doubleValue)
+        sublayerTransform.m33 = CGFloat(subTransM33TextField.doubleValue)
+        sublayerTransform.m34 = CGFloat(subTransM34TextField.doubleValue)
+        sublayerTransform.m41 = CGFloat(subTransM41TextField.doubleValue)
+        sublayerTransform.m42 = CGFloat(subTransM42TextField.doubleValue)
+        sublayerTransform.m43 = CGFloat(subTransM43TextField.doubleValue)
+        sublayerTransform.m44 = CGFloat(subTransM44TextField.doubleValue)
+    }
+
+    func readFieldsFromSublayerTransform() {
+        subTransM11TextField.doubleValue = Double(sublayerTransform.m11)
+        subTransM12TextField.doubleValue = Double(sublayerTransform.m12)
+        subTransM13TextField.doubleValue = Double(sublayerTransform.m13)
+        subTransM14TextField.doubleValue = Double(sublayerTransform.m14)
+        subTransM21TextField.doubleValue = Double(sublayerTransform.m21)
+        subTransM22TextField.doubleValue = Double(sublayerTransform.m22)
+        subTransM23TextField.doubleValue = Double(sublayerTransform.m23)
+        subTransM24TextField.doubleValue = Double(sublayerTransform.m24)
+        subTransM31TextField.doubleValue = Double(sublayerTransform.m31)
+        subTransM32TextField.doubleValue = Double(sublayerTransform.m32)
+        subTransM33TextField.doubleValue = Double(sublayerTransform.m33)
+        subTransM34TextField.doubleValue = Double(sublayerTransform.m34)
+        subTransM41TextField.doubleValue = Double(sublayerTransform.m41)
+        subTransM42TextField.doubleValue = Double(sublayerTransform.m42)
+        subTransM43TextField.doubleValue = Double(sublayerTransform.m43)
+        subTransM44TextField.doubleValue = Double(sublayerTransform.m44)
     }
 
     func readConcatFromIdentity() {
@@ -144,7 +207,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
     @IBAction func invertClicked(_ sender: AnyObject) {
         transform = CATransform3DInvert(transform)
 
-        readFieldsFromTranform()
+        readFieldsFromTransform()
         dirty = true
     }
 
@@ -159,7 +222,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
             transform = CATransform3DScale(transform, sx, sy, sz)
         }
 
-        readFieldsFromTranform()
+        readFieldsFromTransform()
         dirty = true
     }
 
@@ -175,7 +238,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
             transform = CATransform3DRotate(transform, angle, x, y, z)
         }
 
-        readFieldsFromTranform()
+        readFieldsFromTransform()
         dirty = true
     }
 
@@ -204,7 +267,7 @@ class TransformInspectorViewController: InspectorPaneViewController {
 
         transform = CATransform3DConcat(transform, concatTransform)
 
-        readFieldsFromTranform()
+        readFieldsFromTransform()
         dirty = true
     }
 

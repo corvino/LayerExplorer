@@ -19,13 +19,14 @@ class CanvasView: NSView, CALayerDelegate {
     public var visualization: LayerVisualization
 
     required public init?(coder: NSCoder) {
-        visualization = Visualization(frameShape: frameShape, anchorDot: anchorDot, modelLayer: modelLayer)
+        let layer = CALayer()
+        visualization = Visualization(layer: layer, frameShape: frameShape, anchorDot: anchorDot, modelLayer: modelLayer)
 
         super.init(coder: coder)
 
-        layer = CALayer()
-        layer?.delegate = self
-        layer?.backgroundColor = NSColor.lightGray.cgColor
+        self.layer = layer
+        layer.delegate = self
+        layer.backgroundColor = NSColor.lightGray.cgColor
         wantsLayer = true
 
         // It would be nicer to make this layer extend infinitely.
@@ -49,9 +50,9 @@ class CanvasView: NSView, CALayerDelegate {
         frameShape.borderWidth = 3
         frameShape.borderColor = NSColor.blue.cgColor
 
-        layer!.addSublayer(modelLayer)
-        layer!.addSublayer(frameShape)
-        layer!.addSublayer(anchorDot)
+        layer.addSublayer(modelLayer)
+        layer.addSublayer(frameShape)
+        layer.addSublayer(anchorDot)
     }
 
     override func layer(_ layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool {

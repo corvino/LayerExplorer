@@ -17,17 +17,20 @@ protocol LayerVisualization {
     var anchorPointZ: CGFloat { get set }
     var affineTransform: CGAffineTransform { get set }
     var transform: CATransform3D { get set }
+    var sublayerTransform: CATransform3D { get set }
 }
 
 // This is the concrete realization of the LayerVisualization protocol.
 // It binds together the layers involved in creating the visualization and updates
 // the visualization when properties change.
 class Visualization : LayerVisualization {
+    fileprivate let layer: CALayer
     fileprivate let frameShape: CALayer
     fileprivate let anchorDot: CAShapeLayer
     fileprivate let modelLayer: CALayer
 
-    required init(frameShape: CALayer, anchorDot: CAShapeLayer, modelLayer: CALayer) {
+    required init(layer: CALayer, frameShape: CALayer, anchorDot: CAShapeLayer, modelLayer: CALayer) {
+        self.layer = layer
         self.frameShape = frameShape
         self.anchorDot = anchorDot
         self.modelLayer = modelLayer
@@ -86,6 +89,13 @@ class Visualization : LayerVisualization {
         set(newTransform) {
             modelLayer.transform = newTransform
             updateVisualizations()
+        }
+    }
+
+    var sublayerTransform: CATransform3D {
+        get { return layer.sublayerTransform }
+        set(newTransform) {
+            layer.sublayerTransform = newTransform
         }
     }
 
