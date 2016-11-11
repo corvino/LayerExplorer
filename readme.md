@@ -21,5 +21,5 @@ The layer's origin is different on OS X than on iOS. OS X has the origin at the 
 * Turn inspector sidebar into vertile panes, like in Xcode.
 * Show editing history; add undo and replay.
 * Allow scrolling of canvas and show rulers.
-* Add tools: drag-and-drop layer, scroll canvas, etc.
-* Add multiple-layer support.
+* Add tools: resizing by dragging frame, scroll canvas, etc.
+* Add multiple object/layer support.

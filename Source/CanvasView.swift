@@ -16,6 +16,8 @@ class CanvasView: NSView, CALayerDelegate {
     fileprivate let tiledLayer = CATiledLayer()
     fileprivate let tiledDelegate = BoundsTiledLayerDelegate()
 
+    fileprivate var dragging = false
+
     public var visualization: LayerVisualization
 
     required public init?(coder: NSCoder) {
@@ -53,6 +55,30 @@ class CanvasView: NSView, CALayerDelegate {
         layer.addSublayer(modelLayer)
         layer.addSublayer(frameShape)
         layer.addSublayer(anchorDot)
+
+        let panGesture = NSPanGestureRecognizer(target: self, action: #selector(handle(pan:)))
+        addGestureRecognizer(panGesture)
+    }
+
+    func handle(pan: NSPanGestureRecognizer) {
+        switch (pan.state, dragging) {
+        case (.began, _):
+            let point = pan.location(in: self)
+            if modelLayer.frame.contains(point) {
+                dragging = true
+                pan.setTranslation(visualization.position, in: self)
+            }
+        case (.changed, true):
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
+            visualization.position = pan.translation(in: self)
+            CATransaction.commit()
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "ChangesAnimated"), object: pan)
+        case (_, true):
+            dragging = false
+        default:
+            break
+        }
     }
 
     override func layer(_ layer: CALayer, shouldInheritContentsScale newScale: CGFloat, from window: NSWindow) -> Bool {
