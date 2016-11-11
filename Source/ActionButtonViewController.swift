@@ -11,7 +11,6 @@ import Cocoa
 class ActionButtonViewController: NSViewController {
 
     @IBAction func goClicked(_ sender: AnyObject) {
-
         CATransaction.begin()
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut))
         CATransaction.setAnimationDuration(0.8)

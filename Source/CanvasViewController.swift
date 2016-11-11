@@ -10,24 +10,17 @@ import Cocoa
 
 class CanvasViewController: NSViewController {
 
-    var layerVisualization : LayerVisualization?
+    @IBOutlet weak var canvasView: CanvasView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.layer?.backgroundColor = NSColor.lightGray.cgColor
 
         let size = CGSize(width: 250, height: 250)
         let centerFramePoint = CGPoint(x: (self.view.bounds.size.width - size.width) / 2, y: (self.view.bounds.size.height - size.height) / 2)
-        layerVisualization = LayerVisualization()
-        layerVisualization!.frame = CGRect(origin: centerFramePoint, size: size)
-        layerVisualization!.addToLayer(self.view.layer!)
+        canvasView.visualization.frame = CGRect(origin: centerFramePoint, size: size)
     }
 
     override func viewDidAppear() {
-        if nil != layerVisualization {
-            // Is there really not a better way to do this in Swift?
-            // Do we have to wait for class stored properties to stop being an animal?
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "LayerSelected"), object: nil, userInfo: ["Layer" : layerVisualization!])
-        }
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "LayerSelected"), object: nil, userInfo: ["Layer" : canvasView.visualization])
     }
 }
