@@ -11,9 +11,16 @@ import Cocoa
 class CanvasViewController: NSViewController {
 
     @IBOutlet weak var canvasView: CanvasView!
+    @IBOutlet weak var scrollView: NSScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        scrollView.hasHorizontalRuler = true
+        scrollView.hasVerticalRuler = true
+        scrollView.horizontalRulerView?.measurementUnits = "Points"
+        scrollView.verticalRulerView?.measurementUnits = "Points"
+        scrollView.rulersVisible = true
 
         let size = CGSize(width: 250, height: 250)
         let centerFramePoint = CGPoint(x: (self.view.bounds.size.width - size.width) / 2, y: (self.view.bounds.size.height - size.height) / 2)

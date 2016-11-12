@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1083,23 +1083,39 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                         <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-QJ-jLX" customClass="CanvasView" customModule="LayerExplorer" customModuleProvider="target">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJv-Q8-TnD">
                                 <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="325" id="2nh-XP-SJb"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="325" id="8M6-h9-ZQC"/>
-                                </constraints>
-                            </customView>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="xPa-qd-aQ1">
+                                    <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4os-WK-CTP" customClass="CanvasView" customModule="LayerExplorer" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </subviews>
+                                </clipView>
+                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="fif-tf-6Yu">
+                                    <rect key="frame" x="-100" y="-100" width="325" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="pz8-mN-AMK">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="325"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vhw-QJ-jLX" secondAttribute="trailing" id="1wI-bo-Btz"/>
-                            <constraint firstItem="vhw-QJ-jLX" firstAttribute="top" secondItem="Ps8-5e-Z3Q" secondAttribute="top" id="bVn-Hg-Hva"/>
-                            <constraint firstAttribute="bottom" secondItem="vhw-QJ-jLX" secondAttribute="bottom" id="sIr-Lt-AQN"/>
-                            <constraint firstItem="vhw-QJ-jLX" firstAttribute="leading" secondItem="Ps8-5e-Z3Q" secondAttribute="leading" id="t3q-at-5M2"/>
+                            <constraint firstItem="JJv-Q8-TnD" firstAttribute="top" secondItem="Ps8-5e-Z3Q" secondAttribute="top" id="2gx-qw-pdl"/>
+                            <constraint firstAttribute="trailing" secondItem="JJv-Q8-TnD" secondAttribute="trailing" id="Ip5-aI-jTq"/>
+                            <constraint firstAttribute="bottom" secondItem="JJv-Q8-TnD" secondAttribute="bottom" id="Y3c-ef-Zx2"/>
+                            <constraint firstItem="JJv-Q8-TnD" firstAttribute="leading" secondItem="Ps8-5e-Z3Q" secondAttribute="leading" id="czn-uE-9sv"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="canvasView" destination="vhw-QJ-jLX" id="t0K-kV-04J"/>
+                        <outlet property="canvasView" destination="4os-WK-CTP" id="o29-5U-ZS8"/>
+                        <outlet property="scrollView" destination="JJv-Q8-TnD" id="MLt-8T-xJv"/>
                     </connections>
                 </viewController>
                 <customObject id="W1g-ya-Jcv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -23,6 +23,8 @@ class BoundsTiledLayerDelegate : NSObject, CALayerDelegate {
 
     func draw(_ layer: CALayer, in context: CGContext) {
         let box = context.boundingBoxOfClipPath
+        guard box.origin.x != CGFloat.infinity && box.origin.y != CGFloat.infinity else { return }
+
         let startX = (Int(box.origin.x) / hashSpacing) * hashSpacing
         let startY = (Int(box.origin.y) / hashSpacing) * hashSpacing
 
