@@ -18,8 +18,9 @@ The layer's origin is different on OS X than on iOS. OS X has the origin at the 
 
 ### ToDo List and Brainstorming
 
-* Turn inspector sidebar into vertile panes, like in Xcode.
+* Turn inspector sidebar into verticle panes, like in Xcode.
 * Show editing history; add undo and replay.
-* Allow scrolling of canvas and show rulers.
 * Add tools: resizing by dragging frame, scroll canvas, etc.
-* Add multiple object/layer support.
+* Add buttons for finding the origin and finding the layer object, as they can get lost when scrolling the canvas. Maybe a reset button as well.
+* Add multiple object/layer support. Maybe?
+* Add support for flipped coordinate system.

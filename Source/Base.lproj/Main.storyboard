@@ -1085,13 +1085,13 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJv-Q8-TnD">
                                 <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="xPa-qd-aQ1">
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="xPa-qd-aQ1" customClass="InfiniteClipView" customModule="LayerExplorer" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4os-WK-CTP" customClass="CanvasView" customModule="LayerExplorer" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="4000" height="4000"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         </view>
                                     </subviews>
                                 </clipView>
@@ -1115,6 +1115,7 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="4os-WK-CTP" id="o29-5U-ZS8"/>
+                        <outlet property="clipView" destination="xPa-qd-aQ1" id="eZm-kZ-l3i"/>
                         <outlet property="scrollView" destination="JJv-Q8-TnD" id="MLt-8T-xJv"/>
                     </connections>
                 </viewController>
