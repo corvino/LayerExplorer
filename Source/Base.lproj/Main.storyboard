@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A313a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -686,7 +686,7 @@
             </objects>
             <point key="canvasLocation" x="75" y="734"/>
         </scene>
-        <!--Delegate-->
+        <!--Frame Inspector View Controller-->
         <scene sceneID="MzL-jp-tpN">
             <objects>
                 <viewController id="KM7-xL-e4w" customClass="FrameInspectorViewController" customModule="LayerExplorer" customModuleProvider="target" sceneMemberID="viewController">
@@ -716,9 +716,15 @@
                                     <constraint firstAttribute="width" constant="60" id="ATx-Ju-tb7"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="5Rj-lL-sqQ">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="0kC-tr-fnK" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="cF5-j5-FtJ" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="KM7-xL-e4w" id="9Ed-wg-Bxy"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="jol-1Q-3wX"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -729,9 +735,15 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UTj-YK-bX2">
                                 <rect key="frame" x="205" y="23" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="b9a-RO-MW0">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="alr-Ao-jiU" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="mhr-I9-JVV" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="KM7-xL-e4w" id="zwz-cv-0Se"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="Hv3-CK-V8C"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -774,9 +786,15 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1UH-Hy-zxo">
                                 <rect key="frame" x="205" y="88" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="19Z-6b-53z">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Ji9-oh-YfH" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="wH0-3e-6yd" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="KM7-xL-e4w" id="etH-P8-UwJ"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="jPV-2k-NJy"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -787,9 +805,15 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-Vw-ar9">
                                 <rect key="frame" x="74" y="22" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XbL-Co-1T6">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="JwY-Tf-1fC" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="JEg-Qo-rqf" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="KM7-xL-e4w" id="4RQ-ZN-mGJ"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="inB-w2-kWa"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -837,7 +861,7 @@
             </objects>
             <point key="canvasLocation" x="1419" y="1075"/>
         </scene>
-        <!--Delegate-->
+        <!--Bounds Inspector View Controller-->
         <scene sceneID="4y1-F3-4uW">
             <objects>
                 <viewController id="Jo7-oe-Mv1" customClass="BoundsInspectorViewController" customModule="LayerExplorer" customModuleProvider="target" sceneMemberID="viewController">
@@ -867,9 +891,15 @@
                                     <constraint firstAttribute="width" constant="60" id="zQU-xE-MRq"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="x95-hT-0zC">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="yRg-AK-Sc2" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="AB1-94-Qc4" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="Jo7-oe-Mv1" id="PHh-S6-Pg0"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="YpE-YP-DVF"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -912,9 +942,15 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eTn-i6-UNm">
                                 <rect key="frame" x="205" y="88" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="upF-I4-WS7">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="bF0-8t-OsE" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="g1l-C9-cje" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="Jo7-oe-Mv1" id="pRh-xv-uAO"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="Auv-YV-yTd"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -925,12 +961,15 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="37Y-tl-SZw">
                                 <rect key="frame" x="74" y="22" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="BuX-nQ-2xm">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="kgw-bN-Exs" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
-                                        <string key="userLabel" base64-UTF8="YES">
-YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
-</string>
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="FAv-tw-PWD" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="Jo7-oe-Mv1" id="NWb-CK-UxF"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="3vG-9m-h2d"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -941,9 +980,15 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="szT-VK-vug">
                                 <rect key="frame" x="205" y="23" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7jQ-Jt-0ec">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Ays-Ax-QFw" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="GXe-MI-XbY" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="Jo7-oe-Mv1" id="sbq-EB-evy"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="N7M-AX-89X"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1145,9 +1190,15 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                                     <constraint firstAttribute="width" constant="60" id="2Ge-MA-q3T"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="nUe-bi-SUa">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="fcw-yv-gvT" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="C20-OR-dxt" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="uYA-Zb-b9q"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="8l4-XC-C9K"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1166,9 +1217,15 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qdE-wE-D8U">
                                 <rect key="frame" x="149" y="176" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gxZ-Xf-lld">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="nCM-vi-W0H" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="rvg-d8-Hg1" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="kfK-8M-q62"/>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="6tj-5y-fG0"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1373,9 +1430,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2lb-Yk-fYG">
                                 <rect key="frame" x="36" y="385" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ki1-mm-9ld">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="VLW-zO-70k" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="C7Q-wd-GrF" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="3cm-jd-CaO"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="Ofn-q8-qOU"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1386,9 +1446,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7bp-jb-cM7">
                                 <rect key="frame" x="36" y="359" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Wgq-aR-e23">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="rvf-gQ-VXf" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="vac-5q-d7z" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="MqL-h3-9WZ"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="J1l-P7-S6v"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1399,9 +1462,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mv6-iy-MNt">
                                 <rect key="frame" x="36" y="334" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="lC7-Ay-kVC">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="IRi-ip-beb" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="wDC-xX-Z14" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="WtR-yN-Gig"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="e4g-oa-enk"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1412,12 +1478,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ggB-gi-i0c">
                                 <rect key="frame" x="118" y="412" width="16" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="tx" id="ZAg-cW-Fk4">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="a4a-7I-yYz" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="sRU-ke-4cO" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="lxP-gW-zhU"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="FEv-rL-sPr"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1428,12 +1494,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NjS-gg-GZ5">
                                 <rect key="frame" x="118" y="387" width="16" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ty" id="fuj-4k-KjW">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="aWq-Ue-M20" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="mge-hO-rDC" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="Evi-Sz-KAo"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="3QU-rO-V1w"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1491,10 +1557,13 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K1f-Ny-WKY">
                                 <rect key="frame" x="91" y="295" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="fIe-5J-03F">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Cud-Gt-Arg" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="peM-JI-Go6" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="Df6-28-vYK"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1504,9 +1573,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kd1-4U-11c">
                                 <rect key="frame" x="60" y="160" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="S3v-QX-Wbv">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="lth-Ti-Mjn" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="RFr-9R-WqX" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="8hQ-7a-zhD"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="M4m-EW-djX"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1517,10 +1589,13 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hhc-2U-JDX">
                                 <rect key="frame" x="62" y="226" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="QLJ-ZT-zkp">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="BU6-9Y-qLc" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="ndb-YN-YUU" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="96N-q3-Hq6"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1530,9 +1605,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0ig-sE-FAr">
                                 <rect key="frame" x="164" y="160" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="s6F-pt-c5b">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="0rS-TS-Zyi" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="0Zt-oB-E6O" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="89e-zk-tQV"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="MkB-tZ-Vwi"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1606,7 +1684,7 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qde-Zz-aoc">
                                 <rect key="frame" x="142" y="163" width="16" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="tx" id="Orf-A8-5jh">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ty" id="Orf-A8-5jh">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1650,9 +1728,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                                     <constraint firstAttribute="width" constant="60" id="NHG-Iu-qzf"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="sfM-RG-zWU">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Ysd-xl-wuc" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="AUf-TW-plf" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="yqZ-jJ-dDn"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="0UP-vd-MJT"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1663,9 +1744,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Na-CZ-Yjm">
                                 <rect key="frame" x="56" y="71" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="2aV-ac-FZP">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="fFE-EB-shB" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="yqr-yM-CtW" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="RIM-Fn-Ys3"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="Ard-VJ-PTJ"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1676,9 +1760,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1s0-u2-YMe">
                                 <rect key="frame" x="56" y="45" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="qto-bU-AIg">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="QgG-3x-14p" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="fkD-Fv-YZ1" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="eIY-Cl-LPz"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="was-yv-YbT"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1689,9 +1776,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-mP-3IR">
                                 <rect key="frame" x="56" y="20" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="hch-wg-5dQ">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Dcz-4K-iRT" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="rVH-Qg-z3o" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="KIg-wV-fXp"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="QpV-kw-dpi"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1718,9 +1808,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mVg-os-gyA">
                                 <rect key="frame" x="160" y="95" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Br8-XV-Sly">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Hur-cG-kWL" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="muG-Gr-MJl" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="3nJ-XX-iaV"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="ZtT-8z-8Qe"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1731,9 +1824,12 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dRi-lV-u0j">
                                 <rect key="frame" x="160" y="71" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="PGz-qb-mzw">
-                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="qh6-x6-Mex" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="uHK-Eg-LHo" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="delegate" destination="zlI-QB-kRn" id="bGa-yf-OYO"/>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="qMG-DD-s7o"/>
                                         </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
@@ -1744,10 +1840,13 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rlf-xJ-XE1">
                                 <rect key="frame" x="168" y="225" width="60" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ek5-9x-64Y">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="3su-ak-BCx" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="sW3-tJ-2SP" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="qIM-AX-aT4" id="GpS-Bc-J3L"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2303,11 +2402,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iKD-1q-77A">
                                 <rect key="frame" x="58" y="453" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1HX-eh-NCK">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="c0s-HW-6aG" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1.0" drawsBackground="YES" id="1HX-eh-NCK">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="dXI-8y-d1d" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="LdE-Po-b70"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2324,11 +2429,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hYb-Oj-f3h">
                                 <rect key="frame" x="132" y="453" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="YzY-bS-7a5">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="TLf-gY-zUg" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1.0" drawsBackground="YES" id="YzY-bS-7a5">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="oBO-u6-hzS" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="wGe-4d-B76"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2345,11 +2456,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9z7-RF-51d">
                                 <rect key="frame" x="206" y="453" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="vKf-Yl-s4n">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="IsM-Vy-0Wa" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1.0" drawsBackground="YES" id="vKf-Yl-s4n">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="3Mv-6J-EYC" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="9xG-YN-hm3"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2366,11 +2483,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aVm-qU-6R8">
                                 <rect key="frame" x="77" y="361" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="w4U-ml-VgS">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Z6G-6X-0vb" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1.0" drawsBackground="YES" id="w4U-ml-VgS">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="OGp-qa-GCb" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="xOL-Sc-FkX"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2387,11 +2510,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2AX-70-vgT">
                                 <rect key="frame" x="144" y="361" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="SNK-gQ-MoW">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="u6i-H5-nTg" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1.0" drawsBackground="YES" id="SNK-gQ-MoW">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="ccW-jC-naa" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="xue-ot-gee"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2408,11 +2537,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9c6-Aw-unB">
                                 <rect key="frame" x="211" y="361" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="hdp-O6-seM">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="ssr-3r-HYR" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="1.0" drawsBackground="YES" id="hdp-O6-seM">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="AU6-mE-axE" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="Syh-1s-tVG"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2449,11 +2584,17 @@ YQFBYUxheWVyIFByb3BlcnR5IEZvcm1hdHRlcg
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pXd-DA-GBb">
                                 <rect key="frame" x="76" y="388" width="46" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Hu1-o4-nKU">
-                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="4fG-m7-dQv" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="0.0" drawsBackground="YES" id="Hu1-o4-nKU">
+                                    <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="8f9-v1-ALd" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="u9r-Lj-clf" id="JQW-Tf-HCq"/>
+                                        </connections>
                                     </numberFormatter>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
