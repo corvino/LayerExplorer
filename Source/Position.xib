@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PositionInspectorViewController" customModule="LayerExplorer" customModuleProvider="target">
+            <connections>
+                <outlet property="anchorPointXTextField" destination="SHm-jC-4AI" id="qya-r1-nAR"/>
+                <outlet property="anchorPointYTextField" destination="tAN-SL-ele" id="1t9-Rh-cP3"/>
+                <outlet property="anchorPointZTextField" destination="tqC-t8-9ij" id="aWx-af-ARa"/>
+                <outlet property="positionXTextField" destination="rNM-rZ-eao" id="0nY-95-8Ga"/>
+                <outlet property="positionYTextField" destination="0O0-NE-JhF" id="ize-j8-fOv"/>
+                <outlet property="view" destination="NZc-og-8ke" id="zmO-Kl-Yqy"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view id="NZc-og-8ke">
+            <rect key="frame" x="0.0" y="0.0" width="284" height="181"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q3e-f1-T4u">
+                    <rect key="frame" x="32" y="119" width="12" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="x" id="U0z-cF-xYF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rNM-rZ-eao">
+                    <rect key="frame" x="50" y="117" width="60" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="BrM-5V-GyP"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="JYz-j0-3jR">
+                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="She-xT-a0a" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Coh-mr-uyp">
+                    <rect key="frame" x="132" y="119" width="11" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="y" id="xtt-Q4-nc5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0O0-NE-JhF">
+                    <rect key="frame" x="149" y="117" width="60" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="5qT-z7-ud3">
+                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.0###" negativeFormat="###0.0###" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="1" maximumFractionDigits="3" id="cPN-60-WkC" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxDigits">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zYq-a5-2Qq">
+                    <rect key="frame" x="33" y="57" width="11" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="x" id="G76-Tb-C10">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SHm-jC-4AI">
+                    <rect key="frame" x="50" y="55" width="60" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="cJe-zZ-ff4">
+                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="1" maximumFractionDigits="2" id="Deg-4u-ceN" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jui-Lh-2sl">
+                    <rect key="frame" x="132" y="57" width="11" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="y" id="MVd-V5-7cx">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RBL-Np-kPX">
+                    <rect key="frame" x="18" y="144" width="53" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="position" id="7Wz-h3-Rqr">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PFZ-f8-6R4">
+                    <rect key="frame" x="18" y="82" width="77" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="anchorPoint" id="cq4-Nm-dCD">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tAN-SL-ele">
+                    <rect key="frame" x="149" y="55" width="60" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="8PS-Bh-Kv6">
+                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="1" maximumFractionDigits="2" id="7LN-WI-8kr" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="np0-hW-OUf">
+                    <rect key="frame" x="18" y="20" width="86" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="anchorPointZ" id="P8T-vh-rYI">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tqC-t8-9ij">
+                    <rect key="frame" x="111" y="17" width="60" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="kPo-05-nff">
+                        <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#0.0#" negativeFormat="#0.0#" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="1" maximumFractionDigits="2" id="oCS-ks-il0" customClass="LayerPropertyFormatter" customModule="LayerExplorer" customModuleProvider="target">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsDecimal" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </numberFormatter>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zYq-a5-2Qq" firstAttribute="centerY" secondItem="SHm-jC-4AI" secondAttribute="centerY" id="2Rj-c6-4Kc"/>
+                <constraint firstItem="SHm-jC-4AI" firstAttribute="leading" secondItem="zYq-a5-2Qq" secondAttribute="trailing" constant="8" id="5tF-zv-P9s"/>
+                <constraint firstItem="zYq-a5-2Qq" firstAttribute="centerX" secondItem="q3e-f1-T4u" secondAttribute="centerX" id="6Fe-qp-EGh"/>
+                <constraint firstItem="RBL-Np-kPX" firstAttribute="leading" secondItem="NZc-og-8ke" secondAttribute="leading" constant="20" id="9Ov-Ca-Jra"/>
+                <constraint firstItem="rNM-rZ-eao" firstAttribute="width" secondItem="tqC-t8-9ij" secondAttribute="width" id="Aek-1T-iM0"/>
+                <constraint firstItem="q3e-f1-T4u" firstAttribute="leading" secondItem="RBL-Np-kPX" secondAttribute="leading" constant="14" id="Fch-6B-1cr"/>
+                <constraint firstAttribute="trailing" secondItem="0O0-NE-JhF" secondAttribute="trailing" constant="75" id="HMc-dh-kLW"/>
+                <constraint firstItem="zYq-a5-2Qq" firstAttribute="top" secondItem="PFZ-f8-6R4" secondAttribute="bottom" constant="8" id="JIf-d0-sq4"/>
+                <constraint firstItem="Coh-mr-uyp" firstAttribute="leading" secondItem="rNM-rZ-eao" secondAttribute="trailing" constant="24" id="JwA-Ts-8ZU"/>
+                <constraint firstItem="jui-Lh-2sl" firstAttribute="centerY" secondItem="tAN-SL-ele" secondAttribute="centerY" id="KhO-PV-BvJ"/>
+                <constraint firstItem="RBL-Np-kPX" firstAttribute="top" secondItem="NZc-og-8ke" secondAttribute="top" constant="20" id="L9Q-ra-lzt"/>
+                <constraint firstItem="SHm-jC-4AI" firstAttribute="width" secondItem="rNM-rZ-eao" secondAttribute="width" id="QiB-el-nco"/>
+                <constraint firstItem="jui-Lh-2sl" firstAttribute="centerY" secondItem="SHm-jC-4AI" secondAttribute="centerY" id="RIa-aI-bMg"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zYq-a5-2Qq" secondAttribute="bottom" constant="20" id="SXV-r8-LY3"/>
+                <constraint firstItem="Coh-mr-uyp" firstAttribute="centerY" secondItem="rNM-rZ-eao" secondAttribute="centerY" id="WME-bd-47z"/>
+                <constraint firstItem="0O0-NE-JhF" firstAttribute="width" secondItem="rNM-rZ-eao" secondAttribute="width" id="WfD-0Z-6dQ"/>
+                <constraint firstItem="jui-Lh-2sl" firstAttribute="leading" secondItem="SHm-jC-4AI" secondAttribute="trailing" constant="24" id="Y4B-3c-HVJ"/>
+                <constraint firstItem="rNM-rZ-eao" firstAttribute="leading" secondItem="q3e-f1-T4u" secondAttribute="trailing" constant="8" id="YSF-Pa-7BA"/>
+                <constraint firstItem="tAN-SL-ele" firstAttribute="leading" secondItem="jui-Lh-2sl" secondAttribute="trailing" constant="8" id="aQ2-Mw-8kx"/>
+                <constraint firstItem="q3e-f1-T4u" firstAttribute="centerY" secondItem="rNM-rZ-eao" secondAttribute="centerY" id="bZR-5g-aps"/>
+                <constraint firstItem="Coh-mr-uyp" firstAttribute="centerY" secondItem="0O0-NE-JhF" secondAttribute="centerY" id="bfl-5U-CIv"/>
+                <constraint firstItem="q3e-f1-T4u" firstAttribute="top" secondItem="RBL-Np-kPX" secondAttribute="bottom" constant="8" id="d5f-wa-Vey"/>
+                <constraint firstAttribute="bottom" secondItem="np0-hW-OUf" secondAttribute="bottom" constant="20" id="dSD-Uq-vnr"/>
+                <constraint firstItem="PFZ-f8-6R4" firstAttribute="top" secondItem="q3e-f1-T4u" secondAttribute="bottom" constant="20" id="epq-DE-Wrv"/>
+                <constraint firstItem="np0-hW-OUf" firstAttribute="top" secondItem="zYq-a5-2Qq" secondAttribute="bottom" constant="20" id="hJf-gr-Niq"/>
+                <constraint firstItem="tqC-t8-9ij" firstAttribute="leading" secondItem="np0-hW-OUf" secondAttribute="trailing" constant="9" id="iwX-EV-v70"/>
+                <constraint firstItem="RBL-Np-kPX" firstAttribute="leading" secondItem="np0-hW-OUf" secondAttribute="leading" id="lXW-k1-Li3"/>
+                <constraint firstItem="tAN-SL-ele" firstAttribute="width" secondItem="SHm-jC-4AI" secondAttribute="width" id="miE-JT-HdF"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="q3e-f1-T4u" secondAttribute="bottom" constant="20" id="rxv-vV-2Ge"/>
+                <constraint firstItem="0O0-NE-JhF" firstAttribute="leading" secondItem="Coh-mr-uyp" secondAttribute="trailing" constant="8" id="v8h-l4-9Bf"/>
+                <constraint firstItem="PFZ-f8-6R4" firstAttribute="leading" secondItem="RBL-Np-kPX" secondAttribute="leading" id="xna-EH-n4Q"/>
+                <constraint firstItem="np0-hW-OUf" firstAttribute="centerY" secondItem="tqC-t8-9ij" secondAttribute="centerY" constant="-0.5" id="xvH-8q-lda"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
