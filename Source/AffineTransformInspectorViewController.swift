@@ -37,6 +37,14 @@ class AffineTransformInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var concatTxTextField: NSTextField!
     @IBOutlet weak var concatTyTextField: NSTextField!
 
+    override func awakeFromNib() {
+        let fields = [aTextField!, bTextField!, cTextField!, dTextField!, txTextField!, tyTextField!,
+                      rotationTextField!, sxTextField!, syTextField!, translateTxTextField!, translateTyTextField!,
+                      concatATextField!, concatBTextField!, concatCTextField!, concatDTextField!,
+                      concatTxTextField!, concatTyTextField!]
+        wireFormatters(fields: fields)
+    }
+
     override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 

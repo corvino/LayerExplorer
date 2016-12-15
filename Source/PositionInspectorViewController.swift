@@ -16,12 +16,9 @@ class PositionInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var anchorPointYTextField: NSTextField!
     @IBOutlet weak var anchorPointZTextField: NSTextField!
 
-    override func viewDidAppear() {
-        NSLog("viewDidAppear()")
-    }
-
-    override func viewDidDisappear() {
-        NSLog("viewDidDisappear()")
+    override func awakeFromNib() {
+        let fields = [positionXTextField!, positionYTextField!, anchorPointXTextField!, anchorPointYTextField!, anchorPointZTextField!]
+        wireFormatters(fields: fields)
     }
 
     override func changesAnimated(_ notification: Notification) {

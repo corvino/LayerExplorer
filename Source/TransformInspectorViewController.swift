@@ -81,6 +81,25 @@ class TransformInspectorViewController: InspectorPaneViewController {
         readConcatFromIdentity()
     }
 
+    override func awakeFromNib() {
+        let fields = [m11TextField!, m12TextField!, m13TextField!, m14TextField!,
+                      m21TextField!, m22TextField!, m23TextField!, m24TextField!,
+                      m31TextField!, m32TextField!, m33TextField!, m34TextField!,
+                      m41TextField!, m42TextField!, m43TextField!, m44TextField!,
+                      sxTextField!, syTextField!, szTextField!,
+                      angleTextField!,
+                      xTextField!, yTextField!, zTextField!,
+                      concatM11TextField!, concatM12TextField!, concatM13TextField!, concatM14TextField!,
+                      concatM21TextField!, concatM22TextField!, concatM23TextField!, concatM24TextField!,
+                      concatM31TextField!, concatM32TextField!, concatM33TextField!, concatM34TextField!,
+                      concatM41TextField!, concatM42TextField!, concatM43TextField!, concatM44TextField!,
+                      subTransM11TextField!, subTransM12TextField!, subTransM13TextField!, subTransM14TextField!,
+                      subTransM21TextField!, subTransM22TextField!, subTransM23TextField!, subTransM24TextField!,
+                      subTransM31TextField!, subTransM32TextField!, subTransM33TextField!, subTransM34TextField!,
+                      subTransM41TextField!, subTransM42TextField!, subTransM43TextField!, subTransM44TextField!]
+        wireFormatters(fields: fields)
+    }
+
     override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 

@@ -25,6 +25,13 @@ class InspectorPaneViewController: NSViewController, LayerPropertyFormatterDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(InspectorPaneViewController.changesAnimated(_:)), name: NSNotification.Name(rawValue: "ChangesAnimated"), object: nil)
     }
 
+    func wireFormatters(fields: [NSTextField]) {
+         // Damn-nabbit; IB should let me set these ... but doesn't.
+        for field in fields {
+            (field.formatter as! LayerPropertyFormatter).delegate = self
+        }
+    }
+
     func markDirty() {
         dirty = true
     }

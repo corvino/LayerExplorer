@@ -15,6 +15,11 @@ class BoundsInspectorViewController: InspectorPaneViewController {
     @IBOutlet weak var widthTextField: NSTextField!
     @IBOutlet weak var heightTextField: NSTextField!
 
+    override func awakeFromNib() {
+        let fields = [xTextField!, yTextField!, widthTextField!, heightTextField!]
+        wireFormatters(fields: fields)
+    }
+
     override func changesAnimated(_ notification: Notification) {
         super.animateChanges(notification)
 
