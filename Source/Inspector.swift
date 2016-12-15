@@ -11,13 +11,9 @@ import Cocoa
 class Inspector : NSObject, NSOutlineViewDataSource, NSOutlineViewDelegate {
     @IBOutlet var outlineView: NSOutlineView!
 
-    struct Section {//: Equatable {
+    struct Section {
         let name: String
         let pane: Pane
-
-//        static func ==(lhs: Section, rhs: Section) -> Bool {
-//            return lhs.name == rhs.name
-//        }
     }
 
     struct Pane {
@@ -96,38 +92,34 @@ class Inspector : NSObject, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         if let item = item as? Section {
-            let header = outlineView.make(withIdentifier: "SectionHeader", owner: self) as? NSTextField
-//            if let item = item as? String {
-//                header?.stringValue = item
-//            }
-            header?.stringValue = item.name
+            let header = outlineView.make(withIdentifier: "SectionHeader", owner: self) as? SectionHeaderView
+            header?.nameTextField.stringValue = item.name
             return header
         } else if let item = item as? Pane {
-//            var objs: NSArray?
-//            var objs: AutoreleasingUnsafeMutablePointer<NSArray>?
-//            if Bundle.main.loadNibNamed(item.nibName, owner: nil, topLevelObjects: objs) {
-//                if let top = objs {
-//                    if 1 == top.pointee.count {
-//                        if let view = top.pointee[0] as? NSView {
-//                            return view
-//                        }
-//                    }
-//                }
-//            }
-//            if let vc = FrameInspectorViewController(nibName: item.nibName, bundle: nil) {
-//                return vc.view
-//            }
             return item.controller.view
         } else {
-            let header = outlineView.make(withIdentifier: "SectionHeader", owner: self) as? NSTextField
-            if let item = item as? String {
-                header?.stringValue = item
-            }
-            return header
+            return nil
         }
     }
 
-    func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
-        return true
+    func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: Any) -> NSTableRowView? {
+        if let row = outlineView.make(withIdentifier: "Row", owner: self) as? NSTableRowView {
+            return row
+        }
+
+        let row = QuietRowView()
+        row.identifier = "Row"
+        return row
     }
+}
+
+class QuietRowView: NSTableRowView {
+    override var isSelected: Bool {
+        get { return false }
+        set {}
+    }
+}
+
+class SectionHeaderView: NSView {
+    @IBOutlet weak var nameTextField: NSTextField!
 }

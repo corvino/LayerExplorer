@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1125,33 +1125,32 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="6fH-CN-CkU">
-                                                            <rect key="frame" x="1" y="0.0" width="445" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <customView identifier="SectionHeader" id="Eqs-E5-lri" customClass="SectionHeaderView" customModule="LayerExplorer" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="0.0" width="445" height="14"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F5m-60-oM1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="445" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="CwX-f8-5lM">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbd-ex-IRd">
+                                                                    <rect key="frame" x="-2" y="0.0" width="449" height="14"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" priority="1" constant="1" id="TIT-VM-j5T"/>
+                                                                    </constraints>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" title="Section Name" id="oaa-M1-vae">
+                                                                        <font key="font" metaFont="systemBold" size="11"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Qbd-ex-IRd" secondAttribute="trailing" id="00j-uS-eBZ"/>
+                                                                <constraint firstItem="Qbd-ex-IRd" firstAttribute="leading" secondItem="Eqs-E5-lri" secondAttribute="leading" id="3xD-mI-x4s"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Qbd-ex-IRd" secondAttribute="bottom" id="nyl-3l-gz6"/>
+                                                                <constraint firstItem="Qbd-ex-IRd" firstAttribute="top" secondItem="Eqs-E5-lri" secondAttribute="top" id="oRw-1F-giP"/>
+                                                            </constraints>
                                                             <connections>
-                                                                <outlet property="textField" destination="F5m-60-oM1" id="YxK-mG-Zag"/>
+                                                                <outlet property="nameTextField" destination="Qbd-ex-IRd" id="Mmo-H6-LmA"/>
                                                             </connections>
-                                                        </tableCellView>
-                                                        <textField identifier="SectionHeader" verticalHuggingPriority="750" id="QMM-Ut-0Cd">
-                                                            <rect key="frame" x="1" y="17" width="445" height="22"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" state="on" title="Section Header" usesSingleLineMode="YES" id="hdW-H4-MRK">
-                                                                <font key="font" metaFont="smallSystem"/>
-                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
+                                                        </customView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
